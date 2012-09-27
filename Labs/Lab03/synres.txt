@@ -1,0 +1,1740 @@
+Warning: DC is only available in Tcl and XG mode. The -tcl_mode and -xg_mode options are no longer required.
+
+                        DC Professional (TM)
+                           DC Expert (TM)
+                            DC Ultra (TM)
+                       FloorPlan Manager (TM)
+                          HDL Compiler (TM)
+                         VHDL Compiler (TM)
+                        Library Compiler (TM)
+                      DesignWare Developer (TM)
+                          DFT Compiler (TM)
+                            BSD Compiler
+                         Power Compiler (TM)
+
+           Version C-2009.06-SP5 for linux -- Jan 15, 2010
+              Copyright (c) 1988-2009 by Synopsys, Inc.
+                         ALL RIGHTS RESERVED
+
+This software and the associated documentation are confidential and 
+proprietary to Synopsys, Inc. Your use or disclosure of this software 
+is subject to the terms and conditions of a written license agreement 
+between you, or your company, and Synopsys, Inc.
+
+The above trademark notice does not imply that you are licensed to use 
+all of the listed products. You are licensed to use only those products 
+for which you have lawfully obtained a valid license key.
+
+Initializing...
+set link_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/C-2009.06-SP2/libraries/syn/dw02.sldb /apps/synopsys/C-2009.06-SP2/libraries/syn/dw01.sldb }
+/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25 /apps/synopsys/C-2009.06-SP2/libraries/syn/dw02.sldb /apps/synopsys/C-2009.06-SP2/libraries/syn/dw01.sldb 
+set target_library {/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25}
+/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25
+read_verilog ./fpmul200.v
+Loading db file '/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25'
+Loading db file '/apps/synopsys/C-2009.06-SP2/libraries/syn/dw02.sldb'
+Loading db file '/apps/synopsys/C-2009.06-SP2/libraries/syn/dw01.sldb'
+Loading db file '/apps/synopsys/SYNTH/libraries/syn/gtech.db'
+Loading db file '/apps/synopsys/SYNTH/libraries/syn/standard.sldb'
+  Loading link library 'tc240c'
+Warning: Function '=' leaked 1 allocations for 16 bytes. (EQN-21)
+  Loading link library 'gtech'
+Loading verilog file '/home/zh/zhan1253/fpmul200/fpmul200.v'
+Detecting input file type automatically (-rtl or -netlist).
+Running DC verilog reader
+Reading with Presto HDL Compiler (equivalent to -rtl option).
+Running PRESTO HDLC
+Compiling source file /home/zh/zhan1253/fpmul200/fpmul200.v
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:52: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:53: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:54: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:55: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:56: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:57: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:59: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:60: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:61: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:62: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:63: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:64: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:65: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:66: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:128: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:129: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:130: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:131: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:132: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:133: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:134: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:135: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:136: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:137: Intraassignment delays for nonblocking assignments are ignored. (VER-130)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:82: signed to unsigned assignment occurs. (VER-318)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:83: signed to unsigned assignment occurs. (VER-318)
+Warning:  /home/zh/zhan1253/fpmul200/fpmul200.v:84: signed to unsigned assignment occurs. (VER-318)
+
+Inferred memory devices in process
+	in routine fpmul line 50 in file
+		'/home/zh/zhan1253/fpmul200/fpmul200.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    pushinV1_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     pushinV_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|   pushinv_d1_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     resoutV_reg     | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       cV_reg        | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   pushinv_d2_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|       aV_reg        | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+|       bV_reg        | Flip-flop |  64   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine fpmul line 115 in file
+		'/home/zh/zhan1253/fpmul200/fpmul200.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     mres_d_reg      | Flip-flop |  160  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine fpmul line 120 in file
+		'/home/zh/zhan1253/fpmul200/fpmul200.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      mres_reg       | Flip-flop |  159  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+	in routine fpmul line 126 in file
+		'/home/zh/zhan1253/fpmul200/fpmul200.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    zeroC_d2_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    zeroB_d2_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|    expres_d2_reg    | Flip-flop |  11   |  Y  | N  | N  | N  | N  | N  | N  |
+|   signres_d3_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      zeroC_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   signres_d2_reg    | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      zeroB_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|     fractC_reg      | Flip-flop |  53   |  Y  | N  | N  | N  | N  | N  | N  |
+|    expres_d3_reg    | Flip-flop |  11   |  Y  | N  | N  | N  | N  | N  | N  |
+|    zeroA_d2_reg     | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|      zeroA_reg      | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Presto compilation completed successfully.
+Current design is now '/home/zh/zhan1253/fpmul200/fpmul.db:fpmul'
+Loaded 1 design.
+Current design is 'fpmul'.
+fpmul
+check_design
+Warning: In design 'fpmul', cell 'C894' does not drive any nets. (LINT-1)
+Warning: In design 'fpmul', cell 'C898' does not drive any nets. (LINT-1)
+1
+create_clock clk -name clk -period 500.000000
+1
+set_propagated_clock clk
+Information: set_input_delay values are added to the propagated clock skew. (TIM-113)
+1
+set_clock_uncertainty 0.25 clk
+1
+set_propagated_clock clk
+Information: set_input_delay values are added to the propagated clock skew. (TIM-113)
+1
+set_max_delay 2 -from pushin
+1
+set_max_delay 2 -from a
+1
+set_max_delay 2 -from b
+1
+set_max_delay 2 -from c
+1
+set_max_delay 2 -to r
+1
+set_max_delay 2 -to pushout
+1
+set_max_area 10000
+1
+compile -map_effort medium
+Information: Checking out the license 'DesignWare'. (SEC-104)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library       |      Version       | Available |
+============================================================================
+| Basic DW Building Blocks                | C-2009.06-DWBB_0912 |    *     |
+| Licensed DW Building Blocks             | C-2009.06-DWBB_0907 |    *     |
+============================================================================
+
+
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'fpmul'
+Information: The register 'mres_d_reg[159]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[158]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[157]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[156]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[155]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[154]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[153]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[152]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[151]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[150]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[149]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[148]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[147]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[146]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[145]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[144]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[143]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[142]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[141]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[140]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[139]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[138]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[137]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[136]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[135]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[134]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[133]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[132]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[131]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[130]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[129]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[128]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[127]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[126]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[125]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[124]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[123]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[122]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[121]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[120]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[119]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[118]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[117]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[116]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[115]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[114]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[113]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[112]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[111]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[110]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[109]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[108]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[107]' is a constant and will be removed. (OPT-1206)
+Information: The register 'mres_d_reg[106]' is a constant and will be removed. (OPT-1206)
+Information: The register 'fractC_reg[52]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+
+  Beginning Implementation Selection
+  ----------------------------------
+  Processing 'fpmul_DW01_dec_0'
+  Processing 'fpmul_DW01_inc_0'
+  Processing 'fpmul_DW01_add_0'
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+  Building model 'DW01_NAND2'
+  Processing 'DW01_NAND2'
+  Building model 'DW01_sub_width11' (rpl)
+  Processing 'DW01_sub_width11'
+  Building model 'DW01_add_width11' (rpl)
+  Processing 'DW01_add_width11'
+  Mapping 'fpmul_DW_mult_uns_0'
+  Mapping 'fpmul_DW_mult_uns_1'
+  Processing 'fpmul_DW01_add_1'
+  Processing 'fpmul_DW01_add_2'
+  Processing 'fpmul_DW01_sub_0'
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+
+  Beginning Mapping Optimizations  (Medium effort)
+  -------------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:02:05   51895.0      0.00       0.0       0.0                          
+    0:02:10   47236.5      0.00       0.0       0.0                          
+    0:02:10   47236.0      0.00       0.0       0.0                          
+    0:02:11   47236.0      0.00       0.0       0.0                          
+    0:02:11   47236.0      0.00       0.0       0.0                          
+    0:02:11   47236.0      0.00       0.0       0.0                          
+    0:02:11   47236.0      0.00       0.0       0.0                          
+    0:02:11   47236.0      0.00       0.0       0.0                          
+    0:02:11   47236.0      0.00       0.0       0.0                          
+    0:02:11   47236.0      0.00       0.0       0.0                          
+
+
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:02:11   47236.0      0.00       0.0       0.0                          
+
+
+  Beginning Area-Recovery Phase  (max_area 10000)
+  -----------------------------
+
+   ELAPSED            WORST NEG TOTAL NEG  DESIGN                            
+    TIME      AREA      SLACK     SLACK   RULE COST         ENDPOINT         
+  --------- --------- --------- --------- --------- -------------------------
+    0:02:12   47236.0      0.00       0.0       0.0                          
+    0:02:12   47236.0      0.00       0.0       0.0                          
+    0:02:19   47139.5      0.00       0.0       0.0                          
+    0:02:20   47069.5      0.00       0.0       0.0                          
+    0:02:21   47040.5      0.00       0.0       0.0                          
+    0:02:21   47033.5      0.00       0.0       0.0                          
+    0:02:21   47026.5      0.00       0.0       0.0                          
+    0:02:21   47026.5      0.00       0.0       0.0                          
+    0:02:22   47026.5      0.00       0.0       0.0                          
+    0:02:22   47026.5      0.00       0.0       0.0                          
+    0:02:22   47026.5      0.00       0.0       0.0                          
+    0:02:22   47026.5      0.00       0.0       0.0                          
+    0:02:22   47026.5      0.00       0.0       0.0                          
+    0:02:22   47026.5      0.00       0.0       0.0                          
+    0:02:36   45990.5      0.00       0.0       0.0                          
+    0:02:39   45949.5      0.00       0.0       0.0                          
+    0:02:39   45949.5      0.00       0.0       0.0                          
+    0:02:39   45949.5      0.00       0.0       0.0                          
+    0:02:39   45949.5      0.00       0.0       0.0                          
+    0:02:39   45949.5      0.00       0.0       0.0                          
+    0:02:39   45949.5      0.00       0.0       0.0                          
+    0:02:39   45949.5      0.00       0.0       0.0                          
+Loading db file '/apps/toshiba/sjsu/synopsys/tc240c/tc240c.db_NOMIN25'
+
+  Optimization Complete
+  ---------------------
+1
+update_timing
+Information: Updating design information... (UID-85)
+Information: Input delay ('fall') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+Information: Input delay ('rise') on clock port 'clk' will be added to the clock's propagated skew. (TIM-112)
+1
+report -cell
+report_cell
+ 
+****************************************
+Report : cell
+Design : fpmul
+Version: C-2009.06-SP5
+Date   : Thu Sep 27 14:31:51 2012
+****************************************
+
+Attributes:
+   BO - reference allows boundary optimization
+    b - black box (unknown)
+    h - hierarchical
+    n - noncombinational
+    r - removable
+    u - contains unmapped logic
+
+Cell                      Reference       Library             Area  Attributes
+--------------------------------------------------------------------------------
+U193                      CAOR1X1         tc240c          2.000000  
+U194                      CAOR2X1         tc240c          2.500000  
+U197                      CAOR2X1         tc240c          2.500000  
+U198                      CAOR2X1         tc240c          2.500000  
+U211                      CNR8X1          tc240c          4.000000  
+U212                      CNR8X1          tc240c          4.000000  
+U213                      CNR8X1          tc240c          4.000000  
+U214                      CNR8X1          tc240c          4.000000  
+U215                      CNR8X1          tc240c          4.000000  
+U216                      CNR8X1          tc240c          4.000000  
+U217                      CNR8X1          tc240c          4.000000  
+U219                      COR4X1          tc240c          2.000000  
+U221                      CNR8X1          tc240c          4.000000  
+U222                      CNR8X1          tc240c          4.000000  
+U223                      CNR8X1          tc240c          4.000000  
+U224                      CNR8X1          tc240c          4.000000  
+U225                      CNR8X1          tc240c          4.000000  
+U226                      CNR8X1          tc240c          4.000000  
+U227                      CNR8X1          tc240c          4.000000  
+U229                      COR4X1          tc240c          2.000000  
+U231                      CNR8X1          tc240c          4.000000  
+U232                      CNR8X1          tc240c          4.000000  
+U233                      CNR8X1          tc240c          4.000000  
+U234                      CNR8X1          tc240c          4.000000  
+U235                      CNR8X1          tc240c          4.000000  
+U236                      CNR8X1          tc240c          4.000000  
+U237                      CNR8X1          tc240c          4.000000  
+U239                      COR4X1          tc240c          2.000000  
+U295                      CIVX4           tc240c          2.000000  
+U296                      COND1XL         tc240c          1.500000  
+U297                      CANR2X1         tc240c          2.000000  
+U298                      COND1XL         tc240c          1.500000  
+U299                      CANR2X1         tc240c          2.000000  
+U300                      CNIVX1          tc240c          1.000000  
+U301                      CNIVX1          tc240c          1.000000  
+U302                      COND1XL         tc240c          1.500000  
+U303                      CANR2X1         tc240c          2.000000  
+U304                      COND1XL         tc240c          1.500000  
+U305                      CANR2X1         tc240c          2.000000  
+U306                      COND1XL         tc240c          1.500000  
+U307                      CANR2X1         tc240c          2.000000  
+U308                      COND1XL         tc240c          1.500000  
+U309                      CANR2X1         tc240c          2.000000  
+U310                      COND1XL         tc240c          1.500000  
+U311                      CANR2X1         tc240c          2.000000  
+U312                      COND1XL         tc240c          1.500000  
+U313                      CANR2X1         tc240c          2.000000  
+U314                      COND1XL         tc240c          1.500000  
+U315                      CANR2X1         tc240c          2.000000  
+U316                      COND1XL         tc240c          1.500000  
+U317                      CANR2X1         tc240c          2.000000  
+U318                      COND1XL         tc240c          1.500000  
+U319                      CANR2X1         tc240c          2.000000  
+U320                      COND1XL         tc240c          1.500000  
+U321                      CANR2X1         tc240c          2.000000  
+U322                      COND1XL         tc240c          1.500000  
+U323                      CANR2X1         tc240c          2.000000  
+U324                      COND1XL         tc240c          1.500000  
+U325                      CANR2X1         tc240c          2.000000  
+U326                      COND1XL         tc240c          1.500000  
+U327                      CANR2X1         tc240c          2.000000  
+U328                      COND1XL         tc240c          1.500000  
+U329                      CANR2X1         tc240c          2.000000  
+U330                      COND1XL         tc240c          1.500000  
+U331                      CANR2X1         tc240c          2.000000  
+U332                      COND1XL         tc240c          1.500000  
+U333                      CANR2X1         tc240c          2.000000  
+U334                      COND1XL         tc240c          1.500000  
+U335                      CANR2X1         tc240c          2.000000  
+U336                      COND1XL         tc240c          1.500000  
+U337                      CANR2X1         tc240c          2.000000  
+U338                      COND1XL         tc240c          1.500000  
+U339                      CANR2X1         tc240c          2.000000  
+U340                      COND1XL         tc240c          1.500000  
+U341                      CANR2X1         tc240c          2.000000  
+U342                      COND1XL         tc240c          1.500000  
+U343                      CANR2X1         tc240c          2.000000  
+U344                      COND1XL         tc240c          1.500000  
+U345                      CANR2X1         tc240c          2.000000  
+U346                      COND1XL         tc240c          1.500000  
+U347                      CANR2X1         tc240c          2.000000  
+U348                      COND1XL         tc240c          1.500000  
+U349                      CANR2X1         tc240c          2.000000  
+U350                      COND1XL         tc240c          1.500000  
+U351                      CANR2X1         tc240c          2.000000  
+U352                      COND1XL         tc240c          1.500000  
+U353                      CANR2X1         tc240c          2.000000  
+U354                      COND1XL         tc240c          1.500000  
+U355                      CANR2X1         tc240c          2.000000  
+U356                      COND1XL         tc240c          1.500000  
+U357                      CANR2X1         tc240c          2.000000  
+U358                      COND1XL         tc240c          1.500000  
+U359                      CANR2X1         tc240c          2.000000  
+U360                      COND1XL         tc240c          1.500000  
+U361                      CANR2X1         tc240c          2.000000  
+U362                      COND1XL         tc240c          1.500000  
+U363                      CANR2X1         tc240c          2.000000  
+U364                      COND1XL         tc240c          1.500000  
+U365                      CANR2X1         tc240c          2.000000  
+U366                      COND1XL         tc240c          1.500000  
+U367                      CANR2X1         tc240c          2.000000  
+U368                      COND1XL         tc240c          1.500000  
+U369                      CANR2X1         tc240c          2.000000  
+U370                      COND1XL         tc240c          1.500000  
+U371                      CANR2X1         tc240c          2.000000  
+U372                      COND1XL         tc240c          1.500000  
+U373                      CANR2X1         tc240c          2.000000  
+U374                      COND1XL         tc240c          1.500000  
+U375                      CANR2X1         tc240c          2.000000  
+U376                      COND1XL         tc240c          1.500000  
+U377                      CANR2X1         tc240c          2.000000  
+U378                      COND1XL         tc240c          1.500000  
+U379                      CANR2X1         tc240c          2.000000  
+U380                      COND1XL         tc240c          1.500000  
+U381                      CANR2X1         tc240c          2.000000  
+U382                      COND1XL         tc240c          1.500000  
+U383                      CANR2X1         tc240c          2.000000  
+U384                      COND1XL         tc240c          1.500000  
+U385                      CANR2X1         tc240c          2.000000  
+U386                      COND1XL         tc240c          1.500000  
+U387                      CANR2X1         tc240c          2.000000  
+U388                      COND1XL         tc240c          1.500000  
+U389                      CANR2X1         tc240c          2.000000  
+U390                      COND1XL         tc240c          1.500000  
+U391                      CANR2X1         tc240c          2.000000  
+U392                      COND1XL         tc240c          1.500000  
+U393                      CANR2X1         tc240c          2.000000  
+U394                      COND1XL         tc240c          1.500000  
+U395                      CANR2X1         tc240c          2.000000  
+U396                      COND1XL         tc240c          1.500000  
+U397                      CANR2X1         tc240c          2.000000  
+U398                      COND1XL         tc240c          1.500000  
+U399                      CANR2X1         tc240c          2.000000  
+U400                      CIVX2           tc240c          1.000000  
+U401                      CNIVX1          tc240c          1.000000  
+U402                      CNR4X1          tc240c          2.000000  
+U403                      CNR2IX1         tc240c          1.500000  
+U404                      CNR2X1          tc240c          1.000000  
+U405                      COND11X1        tc240c          2.000000  
+U406                      CNR4X1          tc240c          2.000000  
+U407                      CND2X1          tc240c          1.000000  
+U408                      CND2X1          tc240c          1.000000  
+U409                      CANR2X1         tc240c          2.000000  
+U410                      CND2X1          tc240c          1.000000  
+U411                      CND2X1          tc240c          1.000000  
+U412                      CANR2X1         tc240c          2.000000  
+U413                      CND2X1          tc240c          1.000000  
+U414                      CND2X1          tc240c          1.000000  
+U415                      CANR2X1         tc240c          2.000000  
+U416                      CND2X1          tc240c          1.000000  
+U417                      CND2X1          tc240c          1.000000  
+U418                      CANR2X1         tc240c          2.000000  
+U419                      CND2X1          tc240c          1.000000  
+U420                      CND2X1          tc240c          1.000000  
+U421                      CANR2X1         tc240c          2.000000  
+U422                      CND2X1          tc240c          1.000000  
+U423                      CND2X1          tc240c          1.000000  
+U424                      CANR2X1         tc240c          2.000000  
+U425                      CND2X1          tc240c          1.000000  
+U426                      CND2X1          tc240c          1.000000  
+U427                      CANR2X1         tc240c          2.000000  
+U428                      CNR4X1          tc240c          2.000000  
+U429                      CND2X1          tc240c          1.000000  
+U430                      CND2X1          tc240c          1.000000  
+U431                      CANR2X1         tc240c          2.000000  
+U432                      CND2X1          tc240c          1.000000  
+U433                      CND2X1          tc240c          1.000000  
+U434                      CANR2X1         tc240c          2.000000  
+U435                      CND2X1          tc240c          1.000000  
+U436                      CND2X1          tc240c          1.000000  
+U437                      CANR2X1         tc240c          2.000000  
+U438                      CND2X1          tc240c          1.000000  
+U439                      CND2X1          tc240c          1.000000  
+U440                      CANR2X1         tc240c          2.000000  
+U441                      COR2X1          tc240c          1.500000  
+U442                      CNR4X1          tc240c          2.000000  
+U443                      CNR4X1          tc240c          2.000000  
+U444                      CNR4X1          tc240c          2.000000  
+U445                      CEOX1           tc240c          2.000000  
+U446                      CEOX1           tc240c          2.000000  
+U447                      CAN8X1          tc240c          4.000000  
+U448                      CAN8X1          tc240c          4.000000  
+U449                      CAN8X1          tc240c          4.000000  
+U450                      CEOX1           tc240c          2.000000  
+U451                      CAN2X1          tc240c          1.500000  
+U452                      CEOX1           tc240c          2.000000  
+U453                      CAN2X1          tc240c          1.500000  
+U454                      CEOX1           tc240c          2.000000  
+U455                      CAN2X1          tc240c          1.500000  
+U456                      CEOX1           tc240c          2.000000  
+U457                      CAN2X1          tc240c          1.500000  
+U458                      CEOX1           tc240c          2.000000  
+U459                      CAN2X1          tc240c          1.500000  
+U460                      CEOX1           tc240c          2.000000  
+U461                      CAN2X1          tc240c          1.500000  
+U462                      CEOX1           tc240c          2.000000  
+U463                      CAN2X1          tc240c          1.500000  
+U464                      CEOX1           tc240c          2.000000  
+U465                      CAN2X1          tc240c          1.500000  
+U466                      CEOX1           tc240c          2.000000  
+U467                      COR2X1          tc240c          1.500000  
+U468                      CENX1           tc240c          2.000000  
+U469                      CIVX2           tc240c          1.000000  
+U470                      CNR2X1          tc240c          1.000000  
+U471                      CNR2X1          tc240c          1.000000  
+U472                      CNR2X1          tc240c          1.000000  
+U473                      CNR2X1          tc240c          1.000000  
+U474                      CNR2X1          tc240c          1.000000  
+U475                      CNR2X1          tc240c          1.000000  
+U476                      CNR2X1          tc240c          1.000000  
+U477                      CND2X1          tc240c          1.000000  
+U478                      CNR2X1          tc240c          1.000000  
+U479                      CEOX1           tc240c          2.000000  
+U480                      CAOR1X1         tc240c          2.000000  
+U481                      CAOR1X1         tc240c          2.000000  
+U482                      CAOR1X1         tc240c          2.000000  
+U483                      CAOR1X1         tc240c          2.000000  
+U484                      CAOR1X1         tc240c          2.000000  
+U485                      CAOR1X1         tc240c          2.000000  
+U486                      CAOR1X1         tc240c          2.000000  
+U487                      COND1XL         tc240c          1.500000  
+U488                      CENX1           tc240c          2.000000  
+U489                      CIVX2           tc240c          1.000000  
+U490                      CIVX2           tc240c          1.000000  
+U491                      CIVX2           tc240c          1.000000  
+U492                      CIVX2           tc240c          1.000000  
+U493                      CIVX2           tc240c          1.000000  
+U494                      CIVX2           tc240c          1.000000  
+U495                      CIVX2           tc240c          1.000000  
+U496                      CIVX2           tc240c          1.000000  
+U497                      CIVX2           tc240c          1.000000  
+U498                      CIVX2           tc240c          1.000000  
+U499                      CIVX2           tc240c          1.000000  
+U500                      CIVX2           tc240c          1.000000  
+U501                      CIVX2           tc240c          1.000000  
+U502                      CIVX2           tc240c          1.000000  
+U503                      CIVX2           tc240c          1.000000  
+U504                      CIVX2           tc240c          1.000000  
+U505                      CIVX2           tc240c          1.000000  
+U506                      CIVX2           tc240c          1.000000  
+U507                      CIVX2           tc240c          1.000000  
+U508                      CIVX2           tc240c          1.000000  
+U509                      CIVX2           tc240c          1.000000  
+U510                      CIVX2           tc240c          1.000000  
+U511                      CIVX2           tc240c          1.000000  
+U512                      CIVX2           tc240c          1.000000  
+U513                      CIVX2           tc240c          1.000000  
+U514                      CIVX2           tc240c          1.000000  
+U515                      CIVX2           tc240c          1.000000  
+U516                      CIVX2           tc240c          1.000000  
+U517                      CIVX2           tc240c          1.000000  
+U518                      CIVX2           tc240c          1.000000  
+U519                      CIVX2           tc240c          1.000000  
+U520                      CIVX2           tc240c          1.000000  
+U521                      CIVX2           tc240c          1.000000  
+U522                      CIVX2           tc240c          1.000000  
+U523                      CIVX2           tc240c          1.000000  
+U524                      CIVX2           tc240c          1.000000  
+U525                      CIVX2           tc240c          1.000000  
+U526                      CIVX2           tc240c          1.000000  
+U527                      CIVX2           tc240c          1.000000  
+U528                      CIVX2           tc240c          1.000000  
+U529                      CIVX2           tc240c          1.000000  
+U530                      CIVX2           tc240c          1.000000  
+U531                      CIVX2           tc240c          1.000000  
+U532                      CIVX2           tc240c          1.000000  
+U533                      CIVX2           tc240c          1.000000  
+U534                      CIVX2           tc240c          1.000000  
+U535                      CIVX2           tc240c          1.000000  
+U536                      CIVX2           tc240c          1.000000  
+U537                      CIVX2           tc240c          1.000000  
+U538                      CIVX2           tc240c          1.000000  
+U539                      CIVX2           tc240c          1.000000  
+U540                      CIVX2           tc240c          1.000000  
+U541                      CIVX2           tc240c          1.000000  
+U542                      CIVX2           tc240c          1.000000  
+U543                      CIVX2           tc240c          1.000000  
+U544                      CIVX2           tc240c          1.000000  
+U545                      CIVX2           tc240c          1.000000  
+U546                      CIVX2           tc240c          1.000000  
+U547                      CIVX2           tc240c          1.000000  
+U548                      CIVX2           tc240c          1.000000  
+U549                      CIVX2           tc240c          1.000000  
+U550                      CIVX2           tc240c          1.000000  
+aV_reg[0]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[1]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[2]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[3]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[4]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[5]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[6]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[7]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[8]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[9]                 CFD2QXL         tc240c          5.000000  n
+aV_reg[10]                CFD2QXL         tc240c          5.000000  n
+aV_reg[11]                CFD2QXL         tc240c          5.000000  n
+aV_reg[12]                CFD2QXL         tc240c          5.000000  n
+aV_reg[13]                CFD2QXL         tc240c          5.000000  n
+aV_reg[14]                CFD2QXL         tc240c          5.000000  n
+aV_reg[15]                CFD2QXL         tc240c          5.000000  n
+aV_reg[16]                CFD2QXL         tc240c          5.000000  n
+aV_reg[17]                CFD2QXL         tc240c          5.000000  n
+aV_reg[18]                CFD2QXL         tc240c          5.000000  n
+aV_reg[19]                CFD2QXL         tc240c          5.000000  n
+aV_reg[20]                CFD2QXL         tc240c          5.000000  n
+aV_reg[21]                CFD2QXL         tc240c          5.000000  n
+aV_reg[22]                CFD2QXL         tc240c          5.000000  n
+aV_reg[23]                CFD2QXL         tc240c          5.000000  n
+aV_reg[24]                CFD2QXL         tc240c          5.000000  n
+aV_reg[25]                CFD2QXL         tc240c          5.000000  n
+aV_reg[26]                CFD2QXL         tc240c          5.000000  n
+aV_reg[27]                CFD2QXL         tc240c          5.000000  n
+aV_reg[28]                CFD2QXL         tc240c          5.000000  n
+aV_reg[29]                CFD2QXL         tc240c          5.000000  n
+aV_reg[30]                CFD2QXL         tc240c          5.000000  n
+aV_reg[31]                CFD2QXL         tc240c          5.000000  n
+aV_reg[32]                CFD2QXL         tc240c          5.000000  n
+aV_reg[33]                CFD2QXL         tc240c          5.000000  n
+aV_reg[34]                CFD2QXL         tc240c          5.000000  n
+aV_reg[35]                CFD2QXL         tc240c          5.000000  n
+aV_reg[36]                CFD2QXL         tc240c          5.000000  n
+aV_reg[37]                CFD2QXL         tc240c          5.000000  n
+aV_reg[38]                CFD2QXL         tc240c          5.000000  n
+aV_reg[39]                CFD2QXL         tc240c          5.000000  n
+aV_reg[40]                CFD2QXL         tc240c          5.000000  n
+aV_reg[41]                CFD2QXL         tc240c          5.000000  n
+aV_reg[42]                CFD2QXL         tc240c          5.000000  n
+aV_reg[43]                CFD2QXL         tc240c          5.000000  n
+aV_reg[44]                CFD2QXL         tc240c          5.000000  n
+aV_reg[45]                CFD2QXL         tc240c          5.000000  n
+aV_reg[46]                CFD2QXL         tc240c          5.000000  n
+aV_reg[47]                CFD2QXL         tc240c          5.000000  n
+aV_reg[48]                CFD2QXL         tc240c          5.000000  n
+aV_reg[49]                CFD2QXL         tc240c          5.000000  n
+aV_reg[50]                CFD2QXL         tc240c          5.000000  n
+aV_reg[51]                CFD2QXL         tc240c          5.000000  n
+aV_reg[52]                CFD2QXL         tc240c          5.000000  n
+aV_reg[53]                CFD2QXL         tc240c          5.000000  n
+aV_reg[54]                CFD2QXL         tc240c          5.000000  n
+aV_reg[55]                CFD2QXL         tc240c          5.000000  n
+aV_reg[56]                CFD2QXL         tc240c          5.000000  n
+aV_reg[57]                CFD2QXL         tc240c          5.000000  n
+aV_reg[58]                CFD2QXL         tc240c          5.000000  n
+aV_reg[59]                CFD2QXL         tc240c          5.000000  n
+aV_reg[60]                CFD2QXL         tc240c          5.000000  n
+aV_reg[61]                CFD2QXL         tc240c          5.000000  n
+aV_reg[62]                CFD2QXL         tc240c          5.000000  n
+aV_reg[63]                CFD2QXL         tc240c          5.000000  n
+add_0_root_add_0_root_sub_87
+                          fpmul_DW01_add_1                58.500000 BO, h
+add_1_root_add_0_root_sub_87
+                          fpmul_DW01_add_2                58.500000 BO, h
+add_94                    fpmul_DW01_add_0                196.000000
+                                                                    BO, h
+add_102                   fpmul_DW01_inc_0                34.500000 BO, h
+bV_reg[0]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[1]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[2]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[3]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[4]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[5]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[6]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[7]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[8]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[9]                 CFD2QXL         tc240c          5.000000  n
+bV_reg[10]                CFD2QXL         tc240c          5.000000  n
+bV_reg[11]                CFD2QXL         tc240c          5.000000  n
+bV_reg[12]                CFD2QXL         tc240c          5.000000  n
+bV_reg[13]                CFD2QXL         tc240c          5.000000  n
+bV_reg[14]                CFD2QXL         tc240c          5.000000  n
+bV_reg[15]                CFD2QXL         tc240c          5.000000  n
+bV_reg[16]                CFD2QXL         tc240c          5.000000  n
+bV_reg[17]                CFD2QXL         tc240c          5.000000  n
+bV_reg[18]                CFD2QXL         tc240c          5.000000  n
+bV_reg[19]                CFD2QXL         tc240c          5.000000  n
+bV_reg[20]                CFD2QXL         tc240c          5.000000  n
+bV_reg[21]                CFD2QXL         tc240c          5.000000  n
+bV_reg[22]                CFD2QXL         tc240c          5.000000  n
+bV_reg[23]                CFD2QXL         tc240c          5.000000  n
+bV_reg[24]                CFD2QXL         tc240c          5.000000  n
+bV_reg[25]                CFD2QXL         tc240c          5.000000  n
+bV_reg[26]                CFD2QXL         tc240c          5.000000  n
+bV_reg[27]                CFD2QXL         tc240c          5.000000  n
+bV_reg[28]                CFD2QXL         tc240c          5.000000  n
+bV_reg[29]                CFD2QXL         tc240c          5.000000  n
+bV_reg[30]                CFD2QXL         tc240c          5.000000  n
+bV_reg[31]                CFD2QXL         tc240c          5.000000  n
+bV_reg[32]                CFD2QXL         tc240c          5.000000  n
+bV_reg[33]                CFD2QXL         tc240c          5.000000  n
+bV_reg[34]                CFD2QXL         tc240c          5.000000  n
+bV_reg[35]                CFD2QXL         tc240c          5.000000  n
+bV_reg[36]                CFD2QXL         tc240c          5.000000  n
+bV_reg[37]                CFD2QXL         tc240c          5.000000  n
+bV_reg[38]                CFD2QXL         tc240c          5.000000  n
+bV_reg[39]                CFD2QXL         tc240c          5.000000  n
+bV_reg[40]                CFD2QXL         tc240c          5.000000  n
+bV_reg[41]                CFD2QXL         tc240c          5.000000  n
+bV_reg[42]                CFD2QXL         tc240c          5.000000  n
+bV_reg[43]                CFD2QXL         tc240c          5.000000  n
+bV_reg[44]                CFD2QXL         tc240c          5.000000  n
+bV_reg[45]                CFD2QXL         tc240c          5.000000  n
+bV_reg[46]                CFD2QXL         tc240c          5.000000  n
+bV_reg[47]                CFD2QXL         tc240c          5.000000  n
+bV_reg[48]                CFD2QXL         tc240c          5.000000  n
+bV_reg[49]                CFD2QXL         tc240c          5.000000  n
+bV_reg[50]                CFD2QXL         tc240c          5.000000  n
+bV_reg[51]                CFD2QXL         tc240c          5.000000  n
+bV_reg[52]                CFD2QXL         tc240c          5.000000  n
+bV_reg[53]                CFD2QXL         tc240c          5.000000  n
+bV_reg[54]                CFD2QXL         tc240c          5.000000  n
+bV_reg[55]                CFD2QXL         tc240c          5.000000  n
+bV_reg[56]                CFD2QXL         tc240c          5.000000  n
+bV_reg[57]                CFD2QXL         tc240c          5.000000  n
+bV_reg[58]                CFD2QXL         tc240c          5.000000  n
+bV_reg[59]                CFD2QXL         tc240c          5.000000  n
+bV_reg[60]                CFD2QXL         tc240c          5.000000  n
+bV_reg[61]                CFD2QXL         tc240c          5.000000  n
+bV_reg[62]                CFD2QXL         tc240c          5.000000  n
+bV_reg[63]                CFD2QXL         tc240c          5.000000  n
+cV_reg[0]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[1]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[2]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[3]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[4]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[5]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[6]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[7]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[8]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[9]                 CFD2QXL         tc240c          5.000000  n
+cV_reg[10]                CFD2QXL         tc240c          5.000000  n
+cV_reg[11]                CFD2QXL         tc240c          5.000000  n
+cV_reg[12]                CFD2QXL         tc240c          5.000000  n
+cV_reg[13]                CFD2QXL         tc240c          5.000000  n
+cV_reg[14]                CFD2QXL         tc240c          5.000000  n
+cV_reg[15]                CFD2QXL         tc240c          5.000000  n
+cV_reg[16]                CFD2QXL         tc240c          5.000000  n
+cV_reg[17]                CFD2QXL         tc240c          5.000000  n
+cV_reg[18]                CFD2QXL         tc240c          5.000000  n
+cV_reg[19]                CFD2QXL         tc240c          5.000000  n
+cV_reg[20]                CFD2QXL         tc240c          5.000000  n
+cV_reg[21]                CFD2QXL         tc240c          5.000000  n
+cV_reg[22]                CFD2QXL         tc240c          5.000000  n
+cV_reg[23]                CFD2QXL         tc240c          5.000000  n
+cV_reg[24]                CFD2QXL         tc240c          5.000000  n
+cV_reg[25]                CFD2QXL         tc240c          5.000000  n
+cV_reg[26]                CFD2QXL         tc240c          5.000000  n
+cV_reg[27]                CFD2QXL         tc240c          5.000000  n
+cV_reg[28]                CFD2QXL         tc240c          5.000000  n
+cV_reg[29]                CFD2QXL         tc240c          5.000000  n
+cV_reg[30]                CFD2QXL         tc240c          5.000000  n
+cV_reg[31]                CFD2QXL         tc240c          5.000000  n
+cV_reg[32]                CFD2QXL         tc240c          5.000000  n
+cV_reg[33]                CFD2QXL         tc240c          5.000000  n
+cV_reg[34]                CFD2QXL         tc240c          5.000000  n
+cV_reg[35]                CFD2QXL         tc240c          5.000000  n
+cV_reg[36]                CFD2QXL         tc240c          5.000000  n
+cV_reg[37]                CFD2QXL         tc240c          5.000000  n
+cV_reg[38]                CFD2QXL         tc240c          5.000000  n
+cV_reg[39]                CFD2QXL         tc240c          5.000000  n
+cV_reg[40]                CFD2QXL         tc240c          5.000000  n
+cV_reg[41]                CFD2QXL         tc240c          5.000000  n
+cV_reg[42]                CFD2QXL         tc240c          5.000000  n
+cV_reg[43]                CFD2QXL         tc240c          5.000000  n
+cV_reg[44]                CFD2QXL         tc240c          5.000000  n
+cV_reg[45]                CFD2QXL         tc240c          5.000000  n
+cV_reg[46]                CFD2QXL         tc240c          5.000000  n
+cV_reg[47]                CFD2QXL         tc240c          5.000000  n
+cV_reg[48]                CFD2QXL         tc240c          5.000000  n
+cV_reg[49]                CFD2QXL         tc240c          5.000000  n
+cV_reg[50]                CFD2QXL         tc240c          5.000000  n
+cV_reg[51]                CFD2QXL         tc240c          5.000000  n
+cV_reg[52]                CFD2QXL         tc240c          5.000000  n
+cV_reg[53]                CFD2QXL         tc240c          5.000000  n
+cV_reg[54]                CFD2QXL         tc240c          5.000000  n
+cV_reg[55]                CFD2QXL         tc240c          5.000000  n
+cV_reg[56]                CFD2QXL         tc240c          5.000000  n
+cV_reg[57]                CFD2QXL         tc240c          5.000000  n
+cV_reg[58]                CFD2QXL         tc240c          5.000000  n
+cV_reg[59]                CFD2QXL         tc240c          5.000000  n
+cV_reg[60]                CFD2QXL         tc240c          5.000000  n
+cV_reg[61]                CFD2QXL         tc240c          5.000000  n
+cV_reg[62]                CFD2QXL         tc240c          5.000000  n
+cV_reg[63]                CFD2QXL         tc240c          5.000000  n
+expres_d2_reg[0]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[1]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[2]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[3]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[4]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[5]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[6]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[7]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[8]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[9]          CFD1QXL         tc240c          3.500000  n
+expres_d2_reg[10]         CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[0]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[1]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[2]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[3]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[4]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[5]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[6]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[7]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[8]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[9]          CFD1QXL         tc240c          3.500000  n
+expres_d3_reg[10]         CFD1QXL         tc240c          3.500000  n
+fractC_reg[0]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[1]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[2]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[3]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[4]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[5]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[6]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[7]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[8]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[9]             CFD1QXL         tc240c          3.500000  n
+fractC_reg[10]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[11]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[12]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[13]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[14]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[15]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[16]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[17]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[18]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[19]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[20]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[21]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[22]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[23]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[24]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[25]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[26]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[27]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[28]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[29]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[30]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[31]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[32]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[33]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[34]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[35]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[36]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[37]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[38]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[39]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[40]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[41]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[42]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[43]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[44]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[45]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[46]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[47]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[48]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[49]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[50]            CFD1QXL         tc240c          3.500000  n
+fractC_reg[51]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[0]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[1]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[2]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[3]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[4]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[5]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[6]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[7]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[8]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[9]             CFD1QXL         tc240c          3.500000  n
+mres_d_reg[10]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[11]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[12]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[13]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[14]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[15]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[16]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[17]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[18]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[19]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[20]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[21]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[22]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[23]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[24]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[25]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[26]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[27]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[28]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[29]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[30]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[31]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[32]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[33]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[34]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[35]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[36]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[37]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[38]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[39]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[40]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[41]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[42]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[43]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[44]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[45]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[46]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[47]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[48]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[49]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[50]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[51]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[52]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[53]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[54]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[55]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[56]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[57]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[58]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[59]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[60]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[61]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[62]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[63]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[64]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[65]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[66]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[67]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[68]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[69]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[70]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[71]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[72]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[73]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[74]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[75]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[76]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[77]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[78]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[79]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[80]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[81]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[82]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[83]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[84]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[85]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[86]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[87]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[88]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[89]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[90]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[91]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[92]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[93]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[94]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[95]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[96]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[97]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[98]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[99]            CFD1QXL         tc240c          3.500000  n
+mres_d_reg[100]           CFD1QXL         tc240c          3.500000  n
+mres_d_reg[101]           CFD1QXL         tc240c          3.500000  n
+mres_d_reg[102]           CFD1QXL         tc240c          3.500000  n
+mres_d_reg[103]           CFD1QXL         tc240c          3.500000  n
+mres_d_reg[104]           CFD1QXL         tc240c          3.500000  n
+mres_d_reg[105]           CFD1QXL         tc240c          3.500000  n
+mres_reg[0]               CFD1QXL         tc240c          3.500000  n
+mres_reg[1]               CFD1QXL         tc240c          3.500000  n
+mres_reg[2]               CFD1QXL         tc240c          3.500000  n
+mres_reg[3]               CFD1QXL         tc240c          3.500000  n
+mres_reg[4]               CFD1QXL         tc240c          3.500000  n
+mres_reg[5]               CFD1QXL         tc240c          3.500000  n
+mres_reg[6]               CFD1QXL         tc240c          3.500000  n
+mres_reg[7]               CFD1QXL         tc240c          3.500000  n
+mres_reg[8]               CFD1QXL         tc240c          3.500000  n
+mres_reg[9]               CFD1QXL         tc240c          3.500000  n
+mres_reg[10]              CFD1QXL         tc240c          3.500000  n
+mres_reg[11]              CFD1QXL         tc240c          3.500000  n
+mres_reg[12]              CFD1QXL         tc240c          3.500000  n
+mres_reg[13]              CFD1QXL         tc240c          3.500000  n
+mres_reg[14]              CFD1QXL         tc240c          3.500000  n
+mres_reg[15]              CFD1QXL         tc240c          3.500000  n
+mres_reg[16]              CFD1QXL         tc240c          3.500000  n
+mres_reg[17]              CFD1QXL         tc240c          3.500000  n
+mres_reg[18]              CFD1QXL         tc240c          3.500000  n
+mres_reg[19]              CFD1QXL         tc240c          3.500000  n
+mres_reg[20]              CFD1QXL         tc240c          3.500000  n
+mres_reg[21]              CFD1QXL         tc240c          3.500000  n
+mres_reg[22]              CFD1QXL         tc240c          3.500000  n
+mres_reg[23]              CFD1QXL         tc240c          3.500000  n
+mres_reg[24]              CFD1QXL         tc240c          3.500000  n
+mres_reg[25]              CFD1QXL         tc240c          3.500000  n
+mres_reg[26]              CFD1QXL         tc240c          3.500000  n
+mres_reg[27]              CFD1QXL         tc240c          3.500000  n
+mres_reg[28]              CFD1QXL         tc240c          3.500000  n
+mres_reg[29]              CFD1QXL         tc240c          3.500000  n
+mres_reg[30]              CFD1QXL         tc240c          3.500000  n
+mres_reg[31]              CFD1QXL         tc240c          3.500000  n
+mres_reg[32]              CFD1QXL         tc240c          3.500000  n
+mres_reg[33]              CFD1QXL         tc240c          3.500000  n
+mres_reg[34]              CFD1QXL         tc240c          3.500000  n
+mres_reg[35]              CFD1QXL         tc240c          3.500000  n
+mres_reg[36]              CFD1QXL         tc240c          3.500000  n
+mres_reg[37]              CFD1QXL         tc240c          3.500000  n
+mres_reg[38]              CFD1QXL         tc240c          3.500000  n
+mres_reg[39]              CFD1QXL         tc240c          3.500000  n
+mres_reg[40]              CFD1QXL         tc240c          3.500000  n
+mres_reg[41]              CFD1QXL         tc240c          3.500000  n
+mres_reg[42]              CFD1QXL         tc240c          3.500000  n
+mres_reg[43]              CFD1QXL         tc240c          3.500000  n
+mres_reg[44]              CFD1QXL         tc240c          3.500000  n
+mres_reg[45]              CFD1QXL         tc240c          3.500000  n
+mres_reg[46]              CFD1QXL         tc240c          3.500000  n
+mres_reg[47]              CFD1QXL         tc240c          3.500000  n
+mres_reg[48]              CFD1QXL         tc240c          3.500000  n
+mres_reg[49]              CFD1QXL         tc240c          3.500000  n
+mres_reg[50]              CFD1QXL         tc240c          3.500000  n
+mres_reg[51]              CFD1QXL         tc240c          3.500000  n
+mres_reg[52]              CFD1QXL         tc240c          3.500000  n
+mres_reg[53]              CFD1QXL         tc240c          3.500000  n
+mres_reg[54]              CFD1QXL         tc240c          3.500000  n
+mres_reg[55]              CFD1QXL         tc240c          3.500000  n
+mres_reg[56]              CFD1QXL         tc240c          3.500000  n
+mres_reg[57]              CFD1QXL         tc240c          3.500000  n
+mres_reg[58]              CFD1QXL         tc240c          3.500000  n
+mres_reg[59]              CFD1QXL         tc240c          3.500000  n
+mres_reg[60]              CFD1QXL         tc240c          3.500000  n
+mres_reg[61]              CFD1QXL         tc240c          3.500000  n
+mres_reg[62]              CFD1QXL         tc240c          3.500000  n
+mres_reg[63]              CFD1QXL         tc240c          3.500000  n
+mres_reg[64]              CFD1QXL         tc240c          3.500000  n
+mres_reg[65]              CFD1QXL         tc240c          3.500000  n
+mres_reg[66]              CFD1QXL         tc240c          3.500000  n
+mres_reg[67]              CFD1QXL         tc240c          3.500000  n
+mres_reg[68]              CFD1QXL         tc240c          3.500000  n
+mres_reg[69]              CFD1QXL         tc240c          3.500000  n
+mres_reg[70]              CFD1QXL         tc240c          3.500000  n
+mres_reg[71]              CFD1QXL         tc240c          3.500000  n
+mres_reg[72]              CFD1QXL         tc240c          3.500000  n
+mres_reg[73]              CFD1QXL         tc240c          3.500000  n
+mres_reg[74]              CFD1QXL         tc240c          3.500000  n
+mres_reg[75]              CFD1QXL         tc240c          3.500000  n
+mres_reg[76]              CFD1QXL         tc240c          3.500000  n
+mres_reg[77]              CFD1QXL         tc240c          3.500000  n
+mres_reg[78]              CFD1QXL         tc240c          3.500000  n
+mres_reg[79]              CFD1QXL         tc240c          3.500000  n
+mres_reg[80]              CFD1QXL         tc240c          3.500000  n
+mres_reg[81]              CFD1QXL         tc240c          3.500000  n
+mres_reg[82]              CFD1QXL         tc240c          3.500000  n
+mres_reg[83]              CFD1QXL         tc240c          3.500000  n
+mres_reg[84]              CFD1QXL         tc240c          3.500000  n
+mres_reg[85]              CFD1QXL         tc240c          3.500000  n
+mres_reg[86]              CFD1QXL         tc240c          3.500000  n
+mres_reg[87]              CFD1QXL         tc240c          3.500000  n
+mres_reg[88]              CFD1QXL         tc240c          3.500000  n
+mres_reg[89]              CFD1QXL         tc240c          3.500000  n
+mres_reg[90]              CFD1QXL         tc240c          3.500000  n
+mres_reg[91]              CFD1QXL         tc240c          3.500000  n
+mres_reg[92]              CFD1QXL         tc240c          3.500000  n
+mres_reg[93]              CFD1QXL         tc240c          3.500000  n
+mres_reg[94]              CFD1QXL         tc240c          3.500000  n
+mres_reg[95]              CFD1QXL         tc240c          3.500000  n
+mres_reg[96]              CFD1QXL         tc240c          3.500000  n
+mres_reg[97]              CFD1QXL         tc240c          3.500000  n
+mres_reg[98]              CFD1QXL         tc240c          3.500000  n
+mres_reg[99]              CFD1QXL         tc240c          3.500000  n
+mres_reg[100]             CFD1QXL         tc240c          3.500000  n
+mres_reg[101]             CFD1QXL         tc240c          3.500000  n
+mres_reg[102]             CFD1QXL         tc240c          3.500000  n
+mres_reg[103]             CFD1QXL         tc240c          3.500000  n
+mres_reg[104]             CFD1QXL         tc240c          3.500000  n
+mres_reg[105]             CFD1QXL         tc240c          3.500000  n
+mres_reg[106]             CFD1QXL         tc240c          3.500000  n
+mres_reg[107]             CFD1QXL         tc240c          3.500000  n
+mres_reg[108]             CFD1QXL         tc240c          3.500000  n
+mres_reg[109]             CFD1QXL         tc240c          3.500000  n
+mres_reg[110]             CFD1QXL         tc240c          3.500000  n
+mres_reg[111]             CFD1QXL         tc240c          3.500000  n
+mres_reg[112]             CFD1QXL         tc240c          3.500000  n
+mres_reg[113]             CFD1QXL         tc240c          3.500000  n
+mres_reg[114]             CFD1QXL         tc240c          3.500000  n
+mres_reg[115]             CFD1QXL         tc240c          3.500000  n
+mres_reg[116]             CFD1QXL         tc240c          3.500000  n
+mres_reg[117]             CFD1QXL         tc240c          3.500000  n
+mres_reg[118]             CFD1QXL         tc240c          3.500000  n
+mres_reg[119]             CFD1QXL         tc240c          3.500000  n
+mres_reg[120]             CFD1QXL         tc240c          3.500000  n
+mres_reg[121]             CFD1QXL         tc240c          3.500000  n
+mres_reg[122]             CFD1QXL         tc240c          3.500000  n
+mres_reg[123]             CFD1QXL         tc240c          3.500000  n
+mres_reg[124]             CFD1QXL         tc240c          3.500000  n
+mres_reg[125]             CFD1QXL         tc240c          3.500000  n
+mres_reg[126]             CFD1QXL         tc240c          3.500000  n
+mres_reg[127]             CFD1QXL         tc240c          3.500000  n
+mres_reg[128]             CFD1QXL         tc240c          3.500000  n
+mres_reg[129]             CFD1QXL         tc240c          3.500000  n
+mres_reg[130]             CFD1QXL         tc240c          3.500000  n
+mres_reg[131]             CFD1QXL         tc240c          3.500000  n
+mres_reg[132]             CFD1QXL         tc240c          3.500000  n
+mres_reg[133]             CFD1QXL         tc240c          3.500000  n
+mres_reg[134]             CFD1QXL         tc240c          3.500000  n
+mres_reg[135]             CFD1QXL         tc240c          3.500000  n
+mres_reg[136]             CFD1QXL         tc240c          3.500000  n
+mres_reg[137]             CFD1QXL         tc240c          3.500000  n
+mres_reg[138]             CFD1QXL         tc240c          3.500000  n
+mres_reg[139]             CFD1QXL         tc240c          3.500000  n
+mres_reg[140]             CFD1QXL         tc240c          3.500000  n
+mres_reg[141]             CFD1QXL         tc240c          3.500000  n
+mres_reg[142]             CFD1QXL         tc240c          3.500000  n
+mres_reg[143]             CFD1QXL         tc240c          3.500000  n
+mres_reg[144]             CFD1QXL         tc240c          3.500000  n
+mres_reg[145]             CFD1QXL         tc240c          3.500000  n
+mres_reg[146]             CFD1QXL         tc240c          3.500000  n
+mres_reg[147]             CFD1QXL         tc240c          3.500000  n
+mres_reg[148]             CFD1QXL         tc240c          3.500000  n
+mres_reg[149]             CFD1QXL         tc240c          3.500000  n
+mres_reg[150]             CFD1QXL         tc240c          3.500000  n
+mres_reg[151]             CFD1QXL         tc240c          3.500000  n
+mres_reg[152]             CFD1QXL         tc240c          3.500000  n
+mres_reg[153]             CFD1QXL         tc240c          3.500000  n
+mres_reg[154]             CFD1QXL         tc240c          3.500000  n
+mres_reg[155]             CFD1QXL         tc240c          3.500000  n
+mres_reg[156]             CFD1QXL         tc240c          3.500000  n
+mres_reg[157]             CFD1QXL         tc240c          3.500000  n
+mres_reg[158]             CFD1QXL         tc240c          3.500000  n
+mult_117                  fpmul_DW_mult_uns_1             13217.500000
+                                                                    BO, h
+mult_122                  fpmul_DW_mult_uns_0             29386.000000
+                                                                    BO, h
+pushinV1_reg              CFD2QXL         tc240c          5.000000  n
+pushinV_reg               CFD2QXL         tc240c          5.000000  n
+pushinv_d1_reg            CFD1QXL         tc240c          3.500000  n
+pushinv_d2_reg            CFD1QXL         tc240c          3.500000  n
+resoutV_reg[0]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[1]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[2]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[3]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[4]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[5]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[6]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[7]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[8]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[9]            CFD2QXL         tc240c          5.000000  n
+resoutV_reg[10]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[11]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[12]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[13]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[14]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[15]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[16]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[17]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[18]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[19]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[20]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[21]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[22]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[23]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[24]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[25]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[26]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[27]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[28]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[29]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[30]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[31]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[32]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[33]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[34]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[35]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[36]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[37]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[38]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[39]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[40]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[41]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[42]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[43]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[44]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[45]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[46]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[47]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[48]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[49]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[50]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[51]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[52]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[53]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[54]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[55]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[56]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[57]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[58]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[59]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[60]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[61]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[62]           CFD2QXL         tc240c          5.000000  n
+resoutV_reg[63]           CFD2QXL         tc240c          5.000000  n
+signres_d2_reg            CFD1QXL         tc240c          3.500000  n
+signres_d3_reg            CFD1QXL         tc240c          3.500000  n
+zeroA_d2_reg              CFD1QXL         tc240c          3.500000  n
+zeroA_reg                 CFD1QXL         tc240c          3.500000  n
+zeroB_d2_reg              CFD1QXL         tc240c          3.500000  n
+zeroB_reg                 CFD1QXL         tc240c          3.500000  n
+zeroC_d2_reg              CFD1QXL         tc240c          3.500000  n
+zeroC_reg                 CFD1QXL         tc240c          3.500000  n
+--------------------------------------------------------------------------------
+Total 897 cells                                           45949.500000
+1
+report_timing -max_paths 10
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 10
+Design : fpmul
+Version: C-2009.06-SP5
+Date   : Thu Sep 27 14:31:51 2012
+****************************************
+
+Operating Conditions: NOMIN25   Library: tc240c
+Wire Load Model Mode: top
+
+  Startpoint: pushin (input port)
+  Endpoint: pushinv_d1_reg
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  pushin (in)                              0.00       0.00 f
+  U198/Z (CAOR2X1)                         0.16       0.16 f
+  pushinv_d1_reg/D (CFD1QXL)               0.00       0.16 f
+  data arrival time                                   0.16
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.27       1.48
+  data required time                                  1.48
+  -----------------------------------------------------------
+  data required time                                  1.48
+  data arrival time                                  -0.16
+  -----------------------------------------------------------
+  slack (MET)                                         1.32
+
+
+  Startpoint: a[0] (input port)
+  Endpoint: aV_reg[0] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a[0] (in)                                0.00       0.00 f
+  aV_reg[0]/D (CFD2QXL)                    0.00       0.00 f
+  data arrival time                                   0.00
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.21       1.54
+  data required time                                  1.54
+  -----------------------------------------------------------
+  data required time                                  1.54
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  slack (MET)                                         1.54
+
+
+  Startpoint: a[1] (input port)
+  Endpoint: aV_reg[1] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a[1] (in)                                0.00       0.00 f
+  aV_reg[1]/D (CFD2QXL)                    0.00       0.00 f
+  data arrival time                                   0.00
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.21       1.54
+  data required time                                  1.54
+  -----------------------------------------------------------
+  data required time                                  1.54
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  slack (MET)                                         1.54
+
+
+  Startpoint: a[2] (input port)
+  Endpoint: aV_reg[2] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a[2] (in)                                0.00       0.00 f
+  aV_reg[2]/D (CFD2QXL)                    0.00       0.00 f
+  data arrival time                                   0.00
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.21       1.54
+  data required time                                  1.54
+  -----------------------------------------------------------
+  data required time                                  1.54
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  slack (MET)                                         1.54
+
+
+  Startpoint: a[3] (input port)
+  Endpoint: aV_reg[3] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a[3] (in)                                0.00       0.00 f
+  aV_reg[3]/D (CFD2QXL)                    0.00       0.00 f
+  data arrival time                                   0.00
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.21       1.54
+  data required time                                  1.54
+  -----------------------------------------------------------
+  data required time                                  1.54
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  slack (MET)                                         1.54
+
+
+  Startpoint: a[4] (input port)
+  Endpoint: aV_reg[4] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a[4] (in)                                0.00       0.00 f
+  aV_reg[4]/D (CFD2QXL)                    0.00       0.00 f
+  data arrival time                                   0.00
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.21       1.54
+  data required time                                  1.54
+  -----------------------------------------------------------
+  data required time                                  1.54
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  slack (MET)                                         1.54
+
+
+  Startpoint: a[5] (input port)
+  Endpoint: aV_reg[5] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a[5] (in)                                0.00       0.00 f
+  aV_reg[5]/D (CFD2QXL)                    0.00       0.00 f
+  data arrival time                                   0.00
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.21       1.54
+  data required time                                  1.54
+  -----------------------------------------------------------
+  data required time                                  1.54
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  slack (MET)                                         1.54
+
+
+  Startpoint: a[6] (input port)
+  Endpoint: aV_reg[6] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a[6] (in)                                0.00       0.00 f
+  aV_reg[6]/D (CFD2QXL)                    0.00       0.00 f
+  data arrival time                                   0.00
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.21       1.54
+  data required time                                  1.54
+  -----------------------------------------------------------
+  data required time                                  1.54
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  slack (MET)                                         1.54
+
+
+  Startpoint: a[7] (input port)
+  Endpoint: aV_reg[7] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a[7] (in)                                0.00       0.00 f
+  aV_reg[7]/D (CFD2QXL)                    0.00       0.00 f
+  data arrival time                                   0.00
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.21       1.54
+  data required time                                  1.54
+  -----------------------------------------------------------
+  data required time                                  1.54
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  slack (MET)                                         1.54
+
+
+  Startpoint: a[8] (input port)
+  Endpoint: aV_reg[8] (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  a[8] (in)                                0.00       0.00 f
+  aV_reg[8]/D (CFD2QXL)                    0.00       0.00 f
+  data arrival time                                   0.00
+
+  max_delay                                2.00       2.00
+  clock uncertainty                       -0.25       1.75
+  library setup time                      -0.21       1.54
+  data required time                                  1.54
+  -----------------------------------------------------------
+  data required time                                  1.54
+  data arrival time                                   0.00
+  -----------------------------------------------------------
+  slack (MET)                                         1.54
+
+
+  Startpoint: pushinV1_reg
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: pushout (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  pushinV1_reg/CP (CFD2QXL)                0.00       0.00 r
+  pushinV1_reg/Q (CFD2QXL)                 0.36       0.36 r
+  pushout (out)                            0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+  Startpoint: resoutV_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: r[0] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  resoutV_reg[0]/CP (CFD2QXL)              0.00       0.00 r
+  resoutV_reg[0]/Q (CFD2QXL)               0.36       0.36 r
+  r[0] (out)                               0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+  Startpoint: resoutV_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: r[1] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  resoutV_reg[1]/CP (CFD2QXL)              0.00       0.00 r
+  resoutV_reg[1]/Q (CFD2QXL)               0.36       0.36 r
+  r[1] (out)                               0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+  Startpoint: resoutV_reg[2]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: r[2] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  resoutV_reg[2]/CP (CFD2QXL)              0.00       0.00 r
+  resoutV_reg[2]/Q (CFD2QXL)               0.36       0.36 r
+  r[2] (out)                               0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+  Startpoint: resoutV_reg[3]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: r[3] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  resoutV_reg[3]/CP (CFD2QXL)              0.00       0.00 r
+  resoutV_reg[3]/Q (CFD2QXL)               0.36       0.36 r
+  r[3] (out)                               0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+  Startpoint: resoutV_reg[4]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: r[4] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  resoutV_reg[4]/CP (CFD2QXL)              0.00       0.00 r
+  resoutV_reg[4]/Q (CFD2QXL)               0.36       0.36 r
+  r[4] (out)                               0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+  Startpoint: resoutV_reg[5]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: r[5] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  resoutV_reg[5]/CP (CFD2QXL)              0.00       0.00 r
+  resoutV_reg[5]/Q (CFD2QXL)               0.36       0.36 r
+  r[5] (out)                               0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+  Startpoint: resoutV_reg[6]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: r[6] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  resoutV_reg[6]/CP (CFD2QXL)              0.00       0.00 r
+  resoutV_reg[6]/Q (CFD2QXL)               0.36       0.36 r
+  r[6] (out)                               0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+  Startpoint: resoutV_reg[7]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: r[7] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  resoutV_reg[7]/CP (CFD2QXL)              0.00       0.00 r
+  resoutV_reg[7]/Q (CFD2QXL)               0.36       0.36 r
+  r[7] (out)                               0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+  Startpoint: resoutV_reg[8]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: r[8] (output port)
+  Path Group: default
+  Path Type: max
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  resoutV_reg[8]/CP (CFD2QXL)              0.00       0.00 r
+  resoutV_reg[8]/Q (CFD2QXL)               0.36       0.36 r
+  r[8] (out)                               0.00       0.36 r
+  data arrival time                                   0.36
+
+  max_delay                                2.00       2.00
+  output external delay                    0.00       2.00
+  data required time                                  2.00
+  -----------------------------------------------------------
+  data required time                                  2.00
+  data arrival time                                  -0.36
+  -----------------------------------------------------------
+  slack (MET)                                         1.64
+
+
+1
+write -format verilog -output fpmul_gates.v
+Writing verilog file '/home/zh/zhan1253/fpmul200/fpmul_gates.v'.
+Warning: Verilog 'assign' or 'tran' statements are written out. (VO-4)
+Warning: Verilog writer has added 158 nets to module fpmul using SYNOPSYS_UNCONNECTED_ as prefix.  Please use the change_names command to make the correct changes before invoking the verilog writer.  (VO-11)
+1
+write_sdc fpmul_gates.sdc
+1
+quit
+
+Thank you...

@@ -1,0 +1,14 @@
+Starting the run of the homework 2 assignment file fpmul200 cycle time 500
+Simulation run on Thu Sep 27 14:28:56 PDT 2012
+Fall 2012 3 operand floating point multiplier
+zhan1253 on eecad18.engr.sjsu.edu
+script md5sum ee6a725efbadb347c096bc098a228324  run2.pl
+VCS finished
+simv finished
+ simulation OK
+synthesis ran
+Total gates 45949.500000
+Design synthesized OK
+addr:130.65.179.158
+8cfaebdfc1bb3cd4e65d8df87d4e94e1  - zhan1253 eecad18.engr.sjsu.edu
+Completed Thu Sep 27 14:32:17 PDT 2012
