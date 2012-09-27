@@ -1,0 +1,15 @@
+Starting the run of the circ homework 2 assignment file circ cycle time 500
+Simulation run on Wed Sep 19 14:01:26 PDT 2012
+zhan1253 on eecad21.engr.sjsu.edu
+script md5sum 7ee384e07c40de5a1a5b80149727c70a  run2.pl
+VCS finished
+simv finished
+ vcs simulation OK
+ iverilog simulation OK
+ ncverilog simulation OK
+synthesis ran
+Total gates 12437.500000
+Design synthesized OK
+addr:130.65.179.191
+a952ca3219d842a3fb5068c8fc796bca  - zhan1253 eecad21.engr.sjsu.edu
+Completed Wed Sep 19 14:21:39 PDT 2012
