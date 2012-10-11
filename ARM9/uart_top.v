@@ -69,3 +69,51 @@ else begin
 	end
 assign start_rising = (start_dly1 & ~start_ok) & txrrdy & (rx_addr != 10'b0);
 	
+/**/
+always @ (posedge clk or posedge rst)
+if ( rst )
+	txrdy_dly <= 1'b1;
+else 
+	txrdy_dly <= txrdy;
+
+assign txrdy_rising = ~txrdy_dly & txrdy;
+
+
+/*read mem and send into tx_vld/tx_data*/
+always @ (posedge clk or posedge rst)
+if (rst)
+	tx_flag <= 1'b0;
+else if (start_rising)
+	tx_flag <= 1'b1;
+else if ( (tx_addr==rx_addr) & txrdy_rising)
+	tx_flag <= 1'b0;
+else;
+
+always @ (posedge clk or posedge rst)
+if (rst)
+	tx_addr <= 10'b0;
+else if (start_rising & ~tx_flag)
+	tx_addr <= 10'b1;
+else if (tx_flag)
+	if (txrdy_rising)
+		tx_addr <= tx_addr + 1'b1;
+	else;
+else tx_addr <= 10'b0;
+
+assign rd_en = tx_flag ? txrdy_rising : start_rising;
+
+always @ (posedge clk)
+if (rd_en)
+	rd_data <= mem[tx_addr];
+else;
+
+always @ (posedge clk or posedge rst)
+if (rst)
+	tx_en <= 1'b0;
+else  tx_en <= rd_en;
+
+assign tx_vld = tx_en & tx_flag;
+
+assign tx_data = rd_data;
+
+endmodule
