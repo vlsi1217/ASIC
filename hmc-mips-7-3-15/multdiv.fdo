@@ -1,0 +1,14 @@
+## Debug mode script for multdiv unit
+## Carl Nygaard 2007
+## Harvey Mudd College
+
+vlib work
+vlog  "src/components.v"
+vlog  "src/multdiv.v"
+vlog  "testing/moduletests/multdivtest.v"
+vlog  "C:/Xilinx/verilog/src/glbl.v"
+vsim -t 1ps   -L xilinxcorelib_ver -L unisims_ver -lib work multdivtest glbl
+view wave
+vopt +acc=rn multdivtest -o multdivtest_debug
+vsim multdivtest_debug
+do wave_multdiv.do

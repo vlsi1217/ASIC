@@ -1,0 +1,22 @@
+## Debug mode script
+## Carl Nygaard 2006
+## Harvey Mudd College
+
+## First type this manually:
+## do testbench.fdo
+## Sample:
+## do testbench.fdo;do debug.fdo; run 10000ns
+vlib work
+vlog  "src/components.v"
+vlog  "src/multdiv.v"
+vlog  "src/mipspipelined.v"
+vlog  "src/mem.v"
+vlog  "src/imem.v"
+vlog  "src/top.v"
+vlog  "testing/mipstest.v"
+vlog  "C:/Xilinx/verilog/src/glbl.v"
+vsim -t 1ps   -L xilinxcorelib_ver -L unisims_ver -lib work testbench glbl
+view wave
+vopt +acc=rn testbench -o testbench_debug
+vsim testbench_debug
+do wave_alu.do
