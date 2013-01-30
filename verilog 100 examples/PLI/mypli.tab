@@ -1,0 +1,4 @@
+$mypli_reset call=mypli_reset_call acc+=rw:*
+$mypli_cycle call=mypli_cycle_call acc+=rw:*
+$mypli_getcount call=mypli_getcount_call acc+=rw:*
+$mypli_setmodulo call=mypli_setmodulo_call acc+=rw:*

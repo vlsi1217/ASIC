@@ -1,0 +1,3 @@
+$pliopen  call=pliopen_call  acc+=rw:*
+$pliread  call=pliread_call  acc+=rw:*
+$pliclose call=pliclose_call acc+=rw:*

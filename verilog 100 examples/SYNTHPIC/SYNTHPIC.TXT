@@ -1,0 +1,191 @@
+--*** SYNTHETIC PIC V1.1 ***
+--
+-- Version History
+--    Ver/Rev  Date     Comments
+--    1.0      3/9/96   Initial Release
+--    1.1      4/1/96
+--                      - Fixed Fetch/Execute discrepency so that PC and INST
+--                        are now supposed to really behave as shown on PIC
+--                        fetch/execute waveform.
+--                      - Fixed reading and writing of non register file memory.
+--                      - Fixed several bugs, including  bad rotate instruction.
+--                      - Optimized ALU a little bit.
+--                      - Fixed MRST behavior to use a reset vector.
+--                      - Configured Ports so that PortA is an input and PortB
+--                        and PortC are output.  This can be changed as needed.
+--
+
+Welcome to the Synthetic PIC project
+
+
+1. What is the Synthetic PIC?
+
+  The Synthetic PIC is a synthesizable VHDL description of the basic
+  Microchip PIC 16C5X microcontroller.  It is written in the ViewLogic
+  VHDL environment (Workview PLUS 5.2).  It has successfully been
+  synthesized to the XC4000 family, although it is not particular to
+  XILINX.  The intent of the model is to provide a starting point for
+  using the PIC architecture as a "core" for an FPGA, ASIC, etc.
+  This model does not attempt to emulate the PIC with absolute fidelity,
+  rather, it is a good starting point for spinning your own core.
+
+  By "Synthesizable" I mean that this VHDL code is written such that
+  a synthesizer should be able to create actual digital logic given some
+  target silicon (not always the case!).  This code has been successfully
+  functionally simulated with Viewlogic's ViewSim and was successfully
+  synthesized towards the XC4xxx family with the Vantage VHDL synthesizer.
+  This code has not yet been actually embedded in an ASIC or FPGA, although
+  that is its purpose (that is left to you!).
+
+2. Why was the Synthetic PIC made?
+
+  This is simply a project to exercise my VHDL skills.  I've always
+  been interested in computer architecture and microcontrollers.
+  It is primarily for educational purposes, although I expect it
+  can serve as a starting point for commercial application (see license).
+
+3. Why the PIC?
+
+  I started out defining yet another computer architecture, instruction
+  set and device.  Realizing that such things as Assemblers and Debuggers
+  would also need to be written, I decided that the PIC was an existing
+  processor complete with free tools.  The PIC is also lean and mean and
+  exists as a stand-alone part.
+
+4. What is the current status of the project?
+
+  Several simple PIC assembler programs have been assembled and executed
+  on the Synthetic PIC.  Many more will need to be written until the
+  model is 100% validated.  Additionally, not all of the chip's features
+  are modeled (it is not even clear many features would be desired in a "core").
+
+  The basic datapath seems to work, though.  A utility
+  named HEX2VHDL will convert the Intel HEX output of MPASM into the VHDL
+  ROM entity needed to simulate.  I am in the process of writing more
+  programs that will test the model.
+
+  Unimplemented PIC functions to date, include:
+
+  - the RTCC is not modeled.
+  - the Watchdog Timer is not modeled.
+  - the TRIS mechanism and port timing are not implemented, although, register
+	 file writes on the PORTA, PORTB, PORTC do appear at the PICCPU ports of the
+	 same name.  Not sure how far to go with port functionality given this
+	 is a core to be embedded.  Typically, I expect designers to decide up front
+	 what ports they need and then hard-wire the core.
+  - SLEEP is not implemented
+  - The precise MRST timing is not implemented.  MRST is **ACTIVE LOW**
+	 and will reset the model.
+  - Only the C and Z bits in the STATUS register are implemented.
+  - Only the base register files are implemented.  No bank switching
+	 is implemented, Again; relevant to a core?
+  - Be careful about assuming how much RAM/ROM are present.  Look at PICREGS
+	 and PICROM to see how much memory is instantiated.
+
+5. What's the basic VHDL hierarchy used?
+
+  PICTEST.VHD      Purely behavioral outer wrapper used by me for testing
+    PICCPU.VHD     Primary top-level model
+      PICALU.VHD   You guessed it.. The ALU
+		PICREGS.VHD  The register file.
+		PICROM.VHD   The program memory.  The program code is hard-encoded here.
+
+  This is one structuring.  You may wish to pull the PICROM out, say, if you
+  have a core on an FPGA with an external EPROM.  That's easy to do with
+  a little rearranging of the entities.
+
+6. What is all this 'VLBIT' stuff?
+
+  Currently, the code uses the VIEWLOGIC bit types 'vlbit' and 'vlbit_1d'.
+  Only basic '0' and '1' values are used; no tristating is used.
+  The next version of this project will use ieee 1164 types STD_LOGIC
+  and STD_LOGIC_VECTOR.  This is because WorkView Plus 5.2 currently
+  does not support functional simulation with VIEWSIM using IEEE 1164.
+  We will fix this when we get ViewLogic's next version...
+
+  The code only uses basic '1' and '0' bit values.  You should be able to
+  do search/replace on VLBIT and VLBIT_1D to change the bit types to
+  whatever type you require.  You will have to of course, also change
+  the 'library' and 'use' statements as well.  I also use the ADDUM
+  function for performing additions, both in the CPU and ALU.
+
+7. What can I do with it?
+
+  Use it as an example of some VHDL code, use it in a system simulation that
+  incorporates a PIC with other VHDL logic, use it as a "Core" in an FPGA or
+  even an ASIC, perhaps use it as a basis for an ICE?
+
+8. What legal obligations apply?
+
+  If your intent is experimental and education; have fun.  If you make money
+  off of this, then I expect compensation and/or recognition upon negotiation.
+  Specific use agreements are stated in the source code headers, which take
+  precedence over this summary.  See PICCPU.VHD for exact license.
+
+9. How do I start?
+
+  Well, you sort of need a VHDL environment.  Given this, try to get the
+  VHD files to recompile on your system.  If your not using ViewLogic, you
+  will need to convert the VLBIT types to your native types.  In the future,
+  I will have STD_LOGIC definitions that will hopefully run everywhere.
+
+  The PICCPU.VHD entity includes the PICROM subcomponent where the program
+  is encoded.  The PICROM.VHD provided in the distribution corresponds to
+  TEST1.ASM and simply executes a series of simple datapath instructions.
+  You should try to get this program running within your VHDL simulator.
+  You can use MPSIM on TEST1.ASM if you need to see what register values
+  to expect (you should be able to see what TEST1.ASM is up to by inspection).
+
+  The TEST program I included are simply the ones I use for testing.  They
+  do not do anything interesting in themselves; they simply try to cover
+  all the PIC instructions so I can see if they are modeled correctly.
+
+  When you are ready, write your assembler code program, and assemble it
+  with MPASM.  Then, run my little utility HEX2VHDL which creates the VHD file.
+  THEN RENAME THIS TO PICROM.VHD and compile in your VHDL environment.  This
+  is a little confusing at first!  The key thing to remember is that the
+  VHDL code is expecting to see the specific VHDL entity named PICROM.  Here's
+  the 5 step procedure for "embedding" a new PIC program.
+
+	1)  Assemble your new program with MPASM, e.g. MYTEST.ASM
+	2)  Optionally, you may simulate with MPSIM
+	3)  Take your hex output file, MYTEST.HEX, and run the HEX2VHDL program.
+	4)  Copy the resulting MYTEST.VHD file over the PICROM.VHD file.
+	5)  Recompile, analyze, or synthesize your PICROM.VHD
+
+  Your MPASM program is now embedded in your VHDL model and you may now
+  simulate and/or synthesize as needed.
+
+  You can find the latest MPASM and MPSIM programs from Microchip's WWW site.
+
+  All the code is here, so you are free to recombine PICROM, PICCPU, PICREGS
+  in any way that makes sense in your application.  Perhaps, you will offer me
+  ideas and suggestions in how to better partition this package.
+
+10. What's Next (future versions)?
+
+  Well, I hate to say it, but version 1.0 will surely have bugs and holes.
+  Also, I've made assumptions about what users will actually want in a core
+  (for example, I chose not to implement PORT bi-directional I/O).  I hope user
+  feedback clarifies some priorities.
+
+  What else?  Expect an IEEE STD_LOGIC implementation.  Also, a Verilog
+  version soon as those tools become available to me.  I would also like to
+  release a more comprehensive set of MPASM programs.  Also on my list, is
+  a "Customization Guide" illustrating ways to customize the core for
+  specific applications.
+
+  Please help this project by supplying your feedback.
+
+
+
+Thanks!
+
+
+Thomas A. Coonan
+356 Dixie Court
+Lawrenceville, GA 30245
+(770) 903-2256 {work}
+(770) 995-1479 {home}
+tcoonan@mindspring.com {email}
+http://www.mindspring.com/~tcoonan {World Wide Web}

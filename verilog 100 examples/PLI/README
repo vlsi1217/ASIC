@@ -1,0 +1,5 @@
+These files show basics of doing some PLI calls.  These two examples
+are completely independent.  The PLI is very extensive, but these
+examples show that you can do a lot with just a little.  Makefiles
+will run either simulation.  This is all VCS.
+
