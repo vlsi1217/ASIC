@@ -1,0 +1,943 @@
+
+module Binary_Counter_Part_RTL (count, enable, clk, rst);
+  parameter		size = 4;
+  output 	[size -1: 0]	count;
+  input			enable;
+  input			clk, rst;
+  wire			enable_DP;
+
+  Control_Unit  M0 (enable_DP, enable, clk, rst);
+  Datapath_Unit M1 (count, enable_DP, clk, rst);
+endmodule
+
+module Control_Unit  (enable_DP, enable, clk, rst);
+  output 		enable_DP;
+  input		enable;
+  input		clk, rst;			// Not needed 
+
+  wire 		enable_DP = enable;	// pass through
+
+endmodule
+
+module Datapath_Unit (count, enable, clk, rst);
+  parameter	size = 4;
+  output 		[size-1: 0] count;
+  input		enable;
+  input		clk, rst;
+  reg		count;
+  wire		[size-1: 0] next_count;
+
+  always @ (posedge clk) 
+    if (rst == 1) count <= 0; 
+      else if (enable == 1) count <= next_count(count);
+
+  function 	[size-1: 0] 	next_count;
+    input 		[size-1: 0] 	count;
+    begin
+      next_count = count + 1;
+    end
+  endfunction
+endmodule
+
+
+
+module Control_Unit_by_3  (enable_DP, enable, clk, rst);
+  output 		enable_DP;
+  input		enable;
+  input		clk, rst;		// Not needed 
+
+  reg 		enable_DP;
+
+  always begin: Cycle_by_3
+    @ (posedge clk) enable_DP  <= 0;
+    if ((rst == 1) || (enable != 1)) disable Cycle_by_3; else 
+      @ (posedge clk) 
+         if ((rst == 1) || (enable != 1)) disable Cycle_by_3; else 
+          @ (posedge clk) 
+            if ((rst == 1) || (enable != 1)) disable Cycle_by_3; 
+             else enable_DP <= 1;
+  end // Cycle_by_3
+endmodule
+
+
+module RISC_SPM (clk, rst);
+  parameter word_size = 8;
+  parameter Sel1_size = 3;
+  parameter Sel2_size = 2;
+  wire [Sel1_size-1: 0] Sel_Bus_1_Mux;
+  wire [Sel2_size-1: 0] Sel_Bus_2_Mux;
+
+  input clk, rst;
+
+  // Data Nets
+  wire zero;
+  wire [word_size-1: 0] instruction, address, Bus_1, mem_word;
+   
+  // Control Nets
+  wire Load_R0, Load_R1, Load_R2, Load_R3, Load_PC, Inc_PC, Load_IR;   
+  wire Load_Add_R, Load_Reg_Y, Load_Reg_Z;
+  wire write;
+ 
+  Processing_Unit M0_Processor 
+    (instruction, zero, address, Bus_1, mem_word, Load_R0, Load_R1,
+    Load_R2, Load_R3, Load_PC, Inc_PC, Sel_Bus_1_Mux, Load_IR, 
+    Load_Add_R, Load_Reg_Y,
+    Load_Reg_Z,  Sel_Bus_2_Mux, clk, rst);
+
+  Control_Unit M1_Controller (Load_R0, Load_R1, Load_R2, Load_R3, Load_PC, Inc_PC, 
+    Sel_Bus_1_Mux, Sel_Bus_2_Mux , Load_IR, Load_Add_R, Load_Reg_Y, Load_Reg_Z, 
+    write, instruction, zero, clk, rst);
+
+  Memory_Unit M2_SRAM (
+    .data_out(mem_word), 
+    .data_in(Bus_1), 
+    .address(address), 
+    .clk(clk),
+    .write(write) );
+endmodule
+
+
+      
+module Processing_Unit (instruction, Zflag, address, Bus_1, mem_word, Load_R0, Load_R1, Load_R2, 
+  Load_R3, Load_PC, Inc_PC, Sel_Bus_1_Mux, Load_IR, Load_Add_R, Load_Reg_Y, Load_Reg_Z, 
+  Sel_Bus_2_Mux, clk, rst);
+
+  parameter word_size = 8;
+  parameter op_size = 4;
+  parameter Sel1_size = 3;
+  parameter Sel2_size = 2;
+
+  output [word_size-1: 0] 	instruction, address, Bus_1;
+  output 			Zflag;
+
+  input [word_size-1: 0]  	mem_word;
+  input 			Load_R0, Load_R1, Load_R2, Load_R3, Load_PC, Inc_PC;
+  input [Sel1_size-1: 0] 	Sel_Bus_1_Mux;
+  input [Sel2_size-1: 0] 	Sel_Bus_2_Mux;
+  input 			Load_IR, Load_Add_R, Load_Reg_Y, Load_Reg_Z;
+  input 			clk, rst;
+
+  wire			Load_R0, Load_R1, Load_R2, Load_R3;
+  wire [word_size-1: 0] 	Bus_2;
+  wire [word_size-1: 0] 	R0_out, R1_out, R2_out, R3_out;
+  wire [word_size-1: 0] 	PC_count, Y_value, alu_out;
+  wire 			alu_zero_flag;
+  wire [op_size-1 : 0] 	opcode = instruction [word_size-1: word_size-op_size];
+
+  Register_Unit 		R0 	(R0_out, Bus_2, Load_R0, clk, rst);
+  Register_Unit 		R1 	(R1_out, Bus_2, Load_R1, clk, rst);
+  Register_Unit 		R2 	(R2_out, Bus_2, Load_R2, clk, rst);
+  Register_Unit 		R3 	(R3_out, Bus_2, Load_R3, clk, rst);
+  Register_Unit 		Reg_Y 	(Y_value, Bus_2, Load_Reg_Y, clk, rst);
+  D_flop 			Reg_Z 	(Zflag, alu_zero_flag, Load_Reg_Z, clk, rst);
+  Address_Register 	Add_R	(address, Bus_2, Load_Add_R, clk, rst);
+  Instruction_Register	IR	(instruction, Bus_2, Load_IR, clk, rst);
+  Program_Counter 	PC	(PC_count, Bus_2, Load_PC, Inc_PC, clk, rst);
+  Multiplexer_5ch 		Mux_1 	(Bus_1, R0_out, R1_out, R2_out, R3_out, PC_count, Sel_Bus_1_Mux);
+  Multiplexer_3ch 		Mux_2	(Bus_2, alu_out, Bus_1, mem_word, Sel_Bus_2_Mux);
+  Alu_RISC 		ALU	(alu_zero_flag, alu_out, Y_value, Bus_1, opcode);
+endmodule 
+
+module Register_Unit (data_out, data_in, load, clk, rst);
+  parameter 		word_size = 8;
+  output [word_size-1: 0] 	data_out;
+  input 	[word_size-1: 0] 	data_in;
+  input 			load;
+  input 			clk, rst;
+  reg 	[word_size-1: 0]	data_out;
+
+  always @ (posedge clk or negedge rst)
+    if (rst == 0) data_out <= 0; else if (load) data_out <= data_in;
+endmodule
+
+module D_flop (data_out, data_in, load, clk, rst);
+  output 		data_out;
+  input 		data_in;
+  input 		load;
+  input 		clk, rst;
+  reg 		data_out;
+
+  always @ (posedge clk or negedge rst)
+    if (rst == 0) data_out <= 0; else if (load == 1)data_out <= data_in;
+endmodule
+
+ module Address_Register (data_out, data_in, load, clk, rst);
+  parameter word_size = 8;
+  output [word_size-1: 0] 	data_out;
+  input 	[word_size-1: 0] 	data_in;
+  input 			load, clk, rst;
+  reg 	[word_size-1: 0]	data_out;
+  always @ (posedge clk or negedge rst)
+    if (rst == 0) data_out <= 0; else if (load) data_out <= data_in;
+endmodule
+
+module Instruction_Register (data_out, data_in, load, clk, rst);
+  parameter word_size = 8;
+  output [word_size-1: 0] 	data_out;
+  input 	[word_size-1: 0] 	data_in;
+  input 			load;
+  input 			clk, rst;
+  reg 	[word_size-1: 0]	data_out;
+  always @ (posedge clk or negedge rst)
+    if (rst == 0) data_out <= 0; else if (load) data_out <= data_in; 
+endmodule
+
+module Program_Counter (count, data_in, Load_PC, Inc_PC, clk, rst);
+  parameter word_size = 8;
+  output [word_size-1: 0] 	count;
+  input 	[word_size-1: 0] 	data_in;
+  input 			Load_PC, Inc_PC;
+  input 			clk, rst;
+  reg 	[word_size-1: 0]	count;
+  always @ (posedge clk or negedge rst)
+    if (rst == 0) count <= 0; else if (Load_PC) count <= data_in; else if  (Inc_PC) count <= count +1;
+endmodule
+
+module Multiplexer_5ch (mux_out, data_a, data_b, data_c, data_d, data_e, sel);
+  parameter word_size = 8;
+  output [word_size-1: 0] 	mux_out;
+  input 	[word_size-1: 0] 	data_a, data_b, data_c, data_d, data_e;
+  input 	[2: 0] sel;
+ 
+  assign  mux_out = (sel == 0) 	? data_a: (sel == 1) 
+        ? data_b : (sel == 2) 
+        ? data_c: (sel == 3) 
+        ? data_d : (sel == 4) 
+        ? data_e : 'bx;
+endmodule
+
+module Multiplexer_3ch (mux_out, data_a, data_b, data_c, sel);
+  parameter 	word_size = 8;
+  output 		[word_size-1: 0]	 mux_out;
+  input 		[word_size-1: 0] 	data_a, data_b, data_c;
+  input 		[1: 0] sel;
+
+  assign  mux_out = (sel == 0) ? data_a: (sel == 1) ? data_b : (sel == 2) ? data_c: 'bx;
+endmodule
+ 
+
+
+/*ALU Instruction		Action
+ADD			Adds the datapaths to form data_1 + data_2.
+SUB			Subtracts the datapaths to form data_1 - data_2.
+AND			Takes the bitwise-and of the datapaths, data_1 & data_2.
+NOT			Takes the bitwise Boolean complement of data_1.
+*/
+// Note: the carries are ignored in this model.
+ 
+module Alu_RISC (alu_zero_flag, alu_out, data_1, data_2, sel);
+  parameter word_size = 8;
+  parameter op_size = 4;
+  // Opcodes
+  parameter NOP 	= 4'b0000;
+  parameter ADD 	= 4'b0001;
+  parameter SUB 	= 4'b0010;
+  parameter AND 	= 4'b0011;
+  parameter NOT 	= 4'b0100;
+  parameter RD  		= 4'b0101;
+  parameter WR		= 4'b0110;
+  parameter BR		= 4'b0111;
+  parameter BRZ 		= 4'b1000;
+
+  output 			alu_zero_flag;
+  output [word_size-1: 0] 	alu_out;
+  input 	[word_size-1: 0] 	data_1, data_2;
+  input 	[op_size-1: 0] 	sel;
+  reg 	[word_size-1: 0]	alu_out;
+
+  assign  alu_zero_flag = ~|alu_out;
+  always @ (sel or data_1 or data_2)  
+     case  (sel)
+      NOP:	alu_out = 0;
+      ADD:	alu_out = data_1 + data_2;  // Reg_Y + Bus_1
+      SUB:	alu_out = data_2 - data_1;
+      AND:	alu_out = data_1 & data_2;
+      NOT:	alu_out = ~ data_2;	 // Gets data from Bus_1
+      default: 	alu_out = 0;
+    endcase 
+endmodule
+
+
+module Control_Unit (
+  Load_R0, Load_R1, 
+  Load_R2, Load_R3, 
+  Load_PC, Inc_PC, 
+  Sel_Bus_1_Mux, Sel_Bus_2_Mux,
+  Load_IR, Load_Add_R, Load_Reg_Y, Load_Reg_Z, 
+  write, instruction, zero, clk, rst);
+ 
+  parameter word_size = 8, op_size = 4, state_size = 4;
+  parameter src_size = 2, dest_size = 2, Sel1_size = 3, Sel2_size = 2;
+  // State Codes
+  parameter S_idle = 0, S_fet1 = 1, S_fet2 = 2, S_dec = 3;
+  parameter  S_ex1 = 4, S_rd1 = 5, S_rd2 = 6;  
+  parameter S_wr1 = 7, S_wr2 = 8, S_br1 = 9, S_br2 = 10, S_halt = 11;  
+  // Opcodes
+  parameter NOP = 0, ADD = 1, SUB = 2, AND = 3, NOT = 4;
+  parameter RD  = 5, WR =  6,  BR =  7, BRZ = 8;  
+  // Source and Destination Codes  
+  parameter R0 = 0, R1 = 1, R2 = 2, R3 = 3;  
+
+  output Load_R0, Load_R1, Load_R2, Load_R3;
+  output Load_PC, Inc_PC;
+  output [Sel1_size-1: 0] Sel_Bus_1_Mux;
+  output Load_IR, Load_Add_R;
+  output Load_Reg_Y, Load_Reg_Z;
+  output [Sel2_size-1: 0] Sel_Bus_2_Mux;
+  output write;
+  input [word_size-1: 0] instruction;
+  input zero;
+  input clk, rst;
+ 
+  reg [state_size-1: 0] state, next_state;
+  reg Load_R0, Load_R1, Load_R2, Load_R3, Load_PC, Inc_PC;
+  reg Load_IR, Load_Add_R, Load_Reg_Y;
+  reg Sel_ALU, Sel_Bus_1, Sel_Mem;
+  reg Sel_R0, Sel_R1, Sel_R2, Sel_R3, Sel_PC;
+  reg Load_Reg_Z, write;
+  reg err_flag;
+
+  wire [op_size-1: 0] opcode = instruction [word_size-1: word_size - op_size];
+  wire [src_size-1: 0] src = instruction [src_size + dest_size -1: dest_size];
+  wire [dest_size-1: 0] dest = instruction [dest_size -1: 0];
+ 
+  // Mux selectors
+  assign  Sel_Bus_1_Mux[Sel1_size-1: 0] = Sel_R0 ? 0:
+				 Sel_R1 ? 1:
+				 Sel_R2 ? 2:
+				 Sel_R3 ? 3:
+				 Sel_PC ? 4: 3'bx;  // 3-bits, sized number
+
+  assign  Sel_Bus_2_Mux[Sel2_size-1: 0] = Sel_ALU ? 0:
+				 Sel_Bus_1 ? 1:
+				 Sel_Mem ? 2: 2'bx;
+
+  always @ (posedge clk or negedge rst) begin: State_transitions
+    if (rst == 0) state <= S_idle; else state <= next_state; end
+
+/*  always @ (state or instruction or zero) begin:  Output_and_next_state	
+
+Note: The above event control expression leads to incorrect operation.  The state transition causes the activity to be evaluated once, then the resulting instruction change causes it to be evaluated again, but with the residual value of opcode.  On the second pass the value seen is the value opcode had before the state change, which results in Sel_PC = 0 in state 3, which will cause a return to state 1 at the next clock.  Finally, opcode is changed, but this does not trigger a re-evaluation because it is not in the event control expression.  So, the caution is to be sure to use opcode in the event control expression. That way, the final execution of the behavior uses the value of opcode that results from the state change, and leads to the correct value of Sel_PC.
+*/ 
+
+  always @ (state or opcode or src or dest or zero) begin: Output_and_next_state 
+    Sel_R0 = 0; 	Sel_R1 = 0;     	Sel_R2 = 0;    	Sel_R3 = 0;     	Sel_PC = 0;
+    Load_R0 = 0; 	Load_R1 = 0; 	Load_R2 = 0; 	Load_R3 = 0;	Load_PC = 0;
+
+    Load_IR = 0;	Load_Add_R = 0;	Load_Reg_Y = 0;	Load_Reg_Z = 0;
+    Inc_PC = 0; 
+    Sel_Bus_1 = 0; 
+    Sel_ALU = 0; 
+    Sel_Mem = 0; 
+    write = 0; 
+    err_flag = 0;	// Used for de-bug in simulation		
+    next_state = state;
+
+     case  (state)	S_idle:		next_state = S_fet1;      
+        S_fet1:		begin       	  	  	
+          next_state = S_fet2; 
+      	  	  		  Sel_PC = 1;
+      	  	  		  Sel_Bus_1 = 1;
+      	  	   		  Load_Add_R = 1; 
+    				end
+      		S_fet2:		begin 		
+          next_state = S_dec; 
+          Sel_Mem = 1;
+      	  	  		  Load_IR = 1; 
+      	  	  		  Inc_PC = 1;
+    				end
+
+      		S_dec:  	 	case  (opcode) 
+      		 		  NOP: next_state = S_fet1;
+		  		  ADD, SUB, AND: begin
+ 		    		    next_state = S_ex1;
+		    		    Sel_Bus_1 = 1;
+		    		    Load_Reg_Y = 1;
+		     		    case  (src)
+		      		      R0: 		Sel_R0 = 1; 
+		      		      R1: 		Sel_R1 = 1; 
+		      		      R2: 		Sel_R2 = 1;
+		      		      R3: 		Sel_R3 = 1; 
+		      		      default : 	err_flag = 1;
+		    		    endcase   
+          end // ADD, SUB, AND
+        
+			 	  NOT: begin
+			    	    next_state = S_fet1;
+			    	    Load_Reg_Z = 1;
+			    	    Sel_Bus_1 = 1; 
+			    	    Sel_ALU = 1; 
+		 	     	    case  (src)
+			      	      R0: 		Sel_R0 = 1;			      
+      				      R1: 		Sel_R1 = 1;
+			      	      R2: 		Sel_R2 = 1;			      
+ 			      	      R3: 		Sel_R3 = 1; 
+			      	      default : 	err_flag = 1;
+			    	    endcase   
+  			     	    case  (dest)
+			      	      R0: 		Load_R0 = 1; 
+			      	      R1: 		Load_R1 = 1;			      
+      				      R2: 		Load_R2 = 1;
+			      	      R3: 		Load_R3 = 1;			      
+      				      default: 	err_flag = 1;
+			    	    endcase   
+          end // NOT
+  				  
+          RD: begin
+			    	    next_state = S_rd1;
+			    	    Sel_PC = 1; Sel_Bus_1 = 1; Load_Add_R = 1; 
+          end // RD
+
+			  	  WR: begin
+			    	    next_state = S_wr1;
+			    	    Sel_PC = 1; Sel_Bus_1 = 1; Load_Add_R = 1; 
+          end  // WR
+
+			  	  BR: begin 
+			    	    next_state = S_br1;  
+            Sel_PC = 1; Sel_Bus_1 = 1; Load_Add_R = 1; 
+			    	  end  // BR
+	
+  				  BRZ: if (zero == 1) begin
+			    	    next_state = S_br1; 
+            Sel_PC = 1; Sel_Bus_1 = 1; Load_Add_R = 1; 
+			    	  end // BRZ
+			  	  else begin 
+            next_state = S_fet1; 
+            Inc_PC = 1; 
+          end
+        		  		  default : next_state = S_halt;
+				endcase  // (opcode)
+
+    	      	S_ex1:		begin 
+  			  	  next_state = S_fet1;
+			  	  Load_Reg_Z = 1;
+			  	  Sel_ALU = 1; 
+		 	   	  case  (dest)
+  	    		    	    R0: begin Sel_R0 = 1; Load_R0 = 1; end
+			    	    R1: begin Sel_R1 = 1; Load_R1 = 1; end
+			    	    R2: begin Sel_R2 = 1; Load_R2 = 1; end
+			    	    R3: begin Sel_R3 = 1; Load_R3 = 1; end
+			    	    default : err_flag = 1; 
+			   	  endcase  
+				end 
+
+    	      	S_rd1:		begin 
+          next_state = S_rd2;
+			  	  Sel_Mem = 1;
+			  	  Load_Add_R = 1; 
+			  	  Inc_PC = 1;
+				end
+
+    	      	S_wr1: 		begin
+			  	  next_state = S_wr2;
+			  	  Sel_Mem = 1;
+			  	  Load_Add_R = 1; 
+			  	  Inc_PC = 1;
+				end 
+
+      		S_rd2:		begin 
+  			  	  next_state = S_fet1;
+			  	  Sel_Mem = 1;
+		 	   	  case  (dest) 
+    			    	    R0: 		Load_R0 = 1; 
+		 	    	    R1: 		Load_R1 = 1; 
+		 	    	    R2: 		Load_R2 = 1; 
+		 	    	    R3: 		Load_R3 = 1; 
+			    	    default : 	err_flag = 1;
+			  	  endcase  
+				end
+
+    	      	S_wr2:		begin 
+     			  	  next_state = S_fet1;
+			  	  write = 1;
+		 	  	  case  (src)
+    			    	    R0: 		Sel_R0 = 1;		 	    
+    				    R1: 		Sel_R1 = 1;		 	    
+   				    R2: 		Sel_R2 = 1; 		 	    
+   				    R3: 		Sel_R3 = 1;			    
+    				    default : 	err_flag = 1;
+			  	  endcase  
+				end
+
+    	      	S_br1:		begin next_state = S_br2; Sel_Mem = 1; Load_Add_R = 1; end
+    	      	S_br2:		begin next_state = S_fet1; Sel_Mem = 1; Load_PC = 1; end
+    	      	S_halt:  		next_state = S_halt;
+		default:		next_state = S_idle;
+     endcase    
+  end
+endmodule
+      
+
+module Memory_Unit (data_out, data_in, address, clk, write);
+  parameter word_size = 8;
+  parameter memory_size = 256;
+
+  output [word_size-1: 0] data_out;
+  input [word_size-1: 0] data_in;
+  input [word_size-1: 0] address;
+  input clk, write;
+  reg [word_size-1: 0] memory [memory_size-1: 0];
+
+  assign data_out = memory[address];
+
+  always @ (posedge clk)
+    if (write) memory[address] = data_in;
+endmodule
+
+
+
+
+module test_RISC_SPM ();
+  reg rst;
+  wire clk;
+  parameter word_size = 8;
+  reg [8: 0] k;
+
+  Clock_Unit M1 (clk);
+  RISC_SPM M2 (clk, rst);
+
+// define probes
+  wire [word_size-1: 0] word0, word1, word2, word3, word4, word5, word6;
+  wire [word_size-1: 0] word7, word8, word9, word10, word11, word12, word13;
+  wire [word_size-1: 0] word14;
+
+  wire [word_size-1: 0] word128, word129, word130, word131, word132, word255;
+  wire [word_size-1: 0] word133, word134, word135, word136, word137;
+  wire [word_size-1: 0] word138, word139, word140;
+  assign word0 = M2.M2_SRAM.memory[0];
+  assign word1 = M2.M2_SRAM.memory[1];
+  assign word2 = M2.M2_SRAM.memory[2];
+  assign word3 = M2.M2_SRAM.memory[3];
+  assign word4 = M2.M2_SRAM.memory[4];
+  assign word5 = M2.M2_SRAM.memory[5];
+  assign word6 = M2.M2_SRAM.memory[6];
+  assign word7 = M2.M2_SRAM.memory[7];
+  assign word8 = M2.M2_SRAM.memory[8];
+  assign word9 = M2.M2_SRAM.memory[9];
+  assign word10 = M2.M2_SRAM.memory[10];
+  assign word11 = M2.M2_SRAM.memory[11];
+  assign word12 = M2.M2_SRAM.memory[12];
+  assign word13 = M2.M2_SRAM.memory[13];
+  assign word14 = M2.M2_SRAM.memory[14];
+   
+  assign word128 = M2.M2_SRAM.memory[128];
+  assign word129 = M2.M2_SRAM.memory[129];
+  assign word130 = M2.M2_SRAM.memory[130];
+  assign word131 = M2.M2_SRAM.memory[131];
+  assign word132 = M2.M2_SRAM.memory[132];
+  assign word133 = M2.M2_SRAM.memory[133];
+  assign word134 = M2.M2_SRAM.memory[134];
+  assign word135 = M2.M2_SRAM.memory[135];
+  assign word136 = M2.M2_SRAM.memory[136];
+  assign word137 = M2.M2_SRAM.memory[137];
+  assign word138 = M2.M2_SRAM.memory[138];
+  assign word139 = M2.M2_SRAM.memory[139];
+  assign word140 = M2.M2_SRAM.memory[140];
+
+
+  assign word255 = M2.M2_SRAM.memory[255];
+
+ initial #2800 $finish;
+ 
+Flush Memory
+
+initial begin: Flush_Memory
+  #2 rst = 0; for (k=0; k<=255; k=k+1)M2.M2_SRAM.memory[k] = 0; #10 rst = 1;
+end
+
+initial begin: Load_program
+  #5
+			 // opcode_src_dest
+  M2.M2_SRAM.memory[0] = 8'b0000_00_00;		// NOP
+  M2.M2_SRAM.memory[1] = 8'b0101_00_10;		// Read 130 to R2
+  M2.M2_SRAM.memory[2] = 130;
+  M2.M2_SRAM.memory[3] = 8'b0101_00_11;		// Read 131 to R3
+  M2.M2_SRAM.memory[4] = 131;
+  M2.M2_SRAM.memory[5] = 8'b0101_00_01;		// Read 128 to R1
+  M2.M2_SRAM.memory[6] = 128;
+  M2.M2_SRAM.memory[7] = 8'b0101_00_00;		// Read 129 to R0
+  M2.M2_SRAM.memory[8] = 129;
+
+  M2.M2_SRAM.memory[9] = 8'b0010_00_01;		// Sub R1-R0 to R1
+
+  M2.M2_SRAM.memory[10] = 8'b1000_00_00;		// BRZ 
+  M2.M2_SRAM.memory[11] = 134;				// Holds address for BRZ
+
+
+  M2.M2_SRAM.memory[12] = 8'b0001_10_11;		// Add R2+R3 to R3
+  M2.M2_SRAM.memory[13] = 8'b0111_00_11;		// BR
+  M2.M2_SRAM.memory[14] = 140;
+
+  // Load data
+  M2.M2_SRAM.memory[128] = 6;
+  M2.M2_SRAM.memory[129] = 1;
+  M2.M2_SRAM.memory[130] = 2;
+  M2.M2_SRAM.memory[131] = 0;
+  M2.M2_SRAM.memory[134] = 139;
+  //M2.M2_SRAM.memory[135] = 0;
+  M2.M2_SRAM.memory[139] = 8'b1111_00_00;		// HALT
+  M2.M2_SRAM.memory[140] = 9;				//  Recycle
+end 
+endmodule
+
+module UART_Transmitter_Arch 
+  (Serial_out, Data_Bus, Byte_ready, Load_XMT_datareg, T_byte, Clock, reset_);
+  parameter	word_size = 8;			// Size of data word, e.g., 8 bits
+  parameter	one_hot_count = 3;		// Number of one-hot states 
+  parameter	state_count = one_hot_count;	// Number of bits in state register
+  parameter	size_bit_count = 3;		// Size of the bit counter, e.g., 4 
+        					// Must count to word_size + 1
+  parameter	idle = 3'b001;			// one-hot state encoding 
+  parameter	waiting = 3'b010;
+  parameter	sending = 3'b100; 
+  parameter	all_ones = 9'b1_1111_1111;	// Word + 1 extra bit
+
+  output 			Serial_out;		// Serial output to data channel
+  input 	[word_size - 1 : 0] Data_Bus;		// Host data bus containing data word
+  input			Byte_ready; 		// Used by host to signal ready
+  input			Load_XMT_datareg;	// Used by host to load the data register
+  input			T_byte;			// Used by host to signal start of transmission
+  input			Clock;			// Bit clock of the transmitter
+  input			reset_;			// Resets internal registers, loads the
+						// XMT_shftreg with ones
+
+  reg [word_size -1: 0] 	XMT_datareg;		// Transmit Data Register
+  reg [word_size: 0] 	XMT_shftreg;		// Transmit Shift Register: {data, start bit}
+  reg 			Load_XMT_shftreg;	// Flag to load the XMT_shftreg
+  reg [state_count -1: 0] 	state, next_state;		// State machine controller
+  reg [size_bit_count: 0] 	bit_count;		// Counts the bits that are transmitted
+  reg			clear;			// Clears bit_count after last bit is sent
+          reg			shift;			// Causes shift of data in XMT_shftreg
+  reg			start;			// Signals start of transmission
+
+  assign Serial_out = XMT_shftreg[0];		// LSB of shift register 
+
+  always @ (state or Byte_ready or bit_count or T_byte) begin: Output_and_next_state
+    Load_XMT_shftreg = 0;
+    clear = 0;
+    shift = 0;
+    start = 0;
+    next_state = state;
+    case (state)
+      idle:		if (Byte_ready == 1) begin 
+	  	  Load_XMT_shftreg = 1; 
+		  next_state = waiting;  		
+		end 
+
+      waiting:	if (T_byte == 1) 	begin
+		  start = 1;
+	  	  next_state = sending;			
+		end 
+
+      sending:	if (bit_count != word_size + 1) 
+          shift = 1;
+		else begin
+		  clear = 1;
+		  next_state = idle;
+		end
+
+      default:	next_state = idle;
+    endcase
+  end
+ 
+  always @ (posedge Clock or negedge reset_) begin: State_Transitions
+    if (reset_ == 0)  state <= idle;  else state <= next_state; end
+ 
+          always @ (posedge Clock or negedge reset_) begin: Register_Transfers
+    if (reset_ == 0) begin
+      XMT_shftreg <= all_ones; 
+      bit_count <= 0;
+    end
+    else begin
+      if (Load_XMT_datareg == 1) 
+          XMT_datareg <= Data_Bus;				// Get the data bus 
+
+      if (Load_XMT_shftreg == 1) 
+          XMT_shftreg <= {XMT_datareg,1'b1};  			// Load shift reg, 
+							// insert stop bit 
+      if (start == 1) 
+          XMT_shftreg[0] <= 0; 				// Signal start of transmission
+
+      if (clear == 1) bit_count <= 0; 
+      else if (shift == 1) bit_count <= bit_count + 1;
+ 
+      if (shift == 1) 
+          XMT_shftreg <= {1'b1, XMT_shftreg[word_size:1]}; 	// Shift right, fill with 1's
+     end
+   end
+endmodule
+
+module UART8_Receiver 
+  (RCV_datareg, read_not_ready_out, Error1, Error2, Serial_in, read_not_ready_in, Sample_clk, reset_);
+   // Sample_clk is 8x Bit_clk
+
+  parameter	word_size 	= 8;	
+  parameter	half_word	 = word_size / 2;	
+  parameter	Num_counter_bits = 4;		// Must hold count of word_size
+  parameter	Num_state_bits	 = 2;		// Number of bits in state
+  parameter	idle		= 2'b00;
+  parameter	starting		= 2'b01;
+  parameter	receiving	= 2'b10;
+
+  output 		[word_size-1: 0] 		RCV_datareg;
+  output 					read_not_ready_out, 
+					Error1, Error2;
+  input		Serial_in,  
+		Sample_clk, 
+		reset_, 
+		read_not_ready_in;
+
+
+  reg 					RCV_datareg;
+  reg 		[word_size-1: 0] 		RCV_shftreg;
+  reg		[Num_counter_bits -1: 0] 	Sample_counter;
+  reg 		[Num_counter_bits: 0] 	Bit_counter;			 
+  reg 		[Num_state_bits -1: 0] 	state, next_state;		 
+  reg 					inc_Bit_counter, clr_Bit_counter;
+  reg					inc_Sample_counter, clr_Sample_counter;
+  reg					shift, load, read_not_ready_out;
+	  reg					Error1, Error2;
+
+//Combinational logic for next state and conditional outputs
+
+  always @ (state or Serial_in or read_not_ready_in or Sample_counter or Bit_counter) begin
+    read_not_ready_out = 0; 
+    clr_Sample_counter = 0;
+    clr_Bit_counter = 0;
+    inc_Sample_counter = 0;
+    inc_Bit_counter = 0;
+    shift = 0;
+    Error1 = 0;   
+    Error2 = 0;
+    load = 0;
+    next_state = state;
+
+    case (state) 
+      idle:		if (Serial_in == 0) next_state = starting; 
+		
+     starting:	if (Serial_in == 1) begin
+		  next_state = idle;
+    		  clr_Sample_counter = 1;
+    		end else 
+   			    
+		if (Sample_counter == half_word -1) begin
+    		  next_state = receiving;
+    		  clr_Sample_counter = 1;
+    		end else inc_Sample_counter = 1; 
+    				
+    receiving:	if (Sample_counter < word_size-1) inc_Sample_counter = 1;
+		else begin 
+		  clr_Sample_counter = 1;
+		  if (Bit_counter != word_size)  begin
+      		    shift = 1;
+		    inc_Bit_counter = 1;
+		  end
+		  else begin
+		    next_state = idle;
+      		    read_not_ready_out = 1; 
+		    clr_Bit_counter = 1;
+      		    if (read_not_ready_in == 1) Error1 = 1; 
+		    else if (Serial_in == 0) Error2 = 1;
+        		    else load = 1;
+		  end
+		end
+	default:	next_state = idle;
+
+    endcase 
+  end
+
+ // state_transitions_and_register_transfers
+ 
+  always @ (posedge Sample_clk) begin
+    if (reset_ == 0) begin			// synchronous reset_
+      state <= idle; 
+      Sample_counter <= 0;
+      Bit_counter <= 0;
+      RCV_datareg <= 0;
+      RCV_shftreg <= 0;
+    end
+    else begin  
+      state <= next_state;
+
+      if (clr_Sample_counter == 1) Sample_counter <= 0; 
+      else if (inc_Sample_counter == 1) Sample_counter <= Sample_counter + 1;
+
+      if (clr_Bit_counter == 1) Bit_counter <= 0; 
+      else if (inc_Bit_counter == 1) Bit_counter <= Bit_counter + 1;
+      if (shift == 1) RCV_shftreg <= {Serial_in, RCV_shftreg[word_size-1:1]};
+      if (load == 1) RCV_datareg <= RCV_shftreg;
+    end   
+  end 
+ endmodule
+
+      
+module UART8_rcvr_partition   (RCV_datareg, read_not_ready_out, Error1, Error2, Serial_in, 
+  read_not_ready_in, Sample_clk, reset_);
+
+  // partitioned UART receiver			  // Sample_clk is 8x Bit_clk
+
+  parameter		word_size		 = 8;	
+  parameter		half_word 		= word_size / 2;	
+  parameter		Num_counter_bits	= 4;	// Must hold count of word_size
+  parameter		Num_state_bits 		= 2;	// Number of bits in state
+  parameter		idle			= 2'b00;
+  parameter		starting			= 2'b01;
+  parameter		receiving		= 2'b10;
+
+  output 	[word_size -1: 0] 	RCV_datareg;
+  output 			read_not_ready_out, 	// Handshake to host processor
+			Error1, 			// Host not ready error
+			Error2;			// Data_in missing stop bit 
+
+ input			Serial_in,  		// Serial data input
+			Sample_clk, 		// Clock to sample serial data
+			reset_, 			// Active-low reset
+			read_not_ready_in;	// Status bit from host processor
+
+
+  wire [Num_counter_bits -1: 0] 	Sample_counter;
+  wire [Num_counter_bits: 0] 	Bit_counter;			 
+  wire [Num_state_bits -1: 0] 	state, next_state;		 
+   
+controller_part M2  
+  (next_state, shift, load, read_not_ready_out, Error1, Error2, inc_Sample_counter, 
+   inc_Bit_counter, clr_Bit_counter, clr_Sample_counter, state, Sample_counter, Bit_counter, 
+   Serial_in, read_not_ready_in);
+
+state_transition_part M1  
+  (RCV_datareg, Sample_counter, Bit_counter, state, next_state, clr_Sample_counter, 
+    inc_Sample_counter, clr_Bit_counter, inc_Bit_counter, shift, load, Serial_in, Sample_clk, reset_);
+
+endmodule
+
+module controller_part (next_state, shift, load, read_not_ready_out, Error1, Error2, inc_Sample_counter, 
+  inc_Bit_counter, clr_Bit_counter, clr_Sample_counter, state, Sample_counter, Bit_counter, 
+ Serial_in, read_not_ready_in);
+
+  parameter		word_size 		= 8;	
+  parameter		half_word 		= word_size / 2;	
+  parameter		Num_counter_bits 	= 4;	// Must hold count of word_size
+  parameter		Num_state_bits 		= 2;	// Number of bits in state
+  parameter		idle			= 2'b00;
+  parameter		starting			= 2'b01;
+  parameter		receiving		= 2'b10;
+		 
+  output [Num_state_bits -1: 0] 	next_state;
+  output 				shift, load, inc_Sample_counter;
+  output				 inc_Bit_counter, clr_Bit_counter, clr_Sample_counter;
+  output 				read_not_ready_out, Error1, Error2;
+
+  input [Num_state_bits -1: 0] 	state;				
+  input [Num_counter_bits -1: 0] 	Sample_counter;
+  input [Num_counter_bits: 0] 	Bit_counter;	
+  input 				Serial_in, read_not_ready_in;
+
+  reg next_state;
+  reg inc_Sample_counter, inc_Bit_counter, clr_Bit_counter, clr_Sample_counter;
+  reg shift, load,   read_not_ready_out, Error1, Error2;
+
+
+always @ (state or Serial_in or read_not_ready_in or Sample_counter or Bit_counter) begin
+    read_not_ready_out = 0; 	//Combinational logic for next state and conditional outputs
+    clr_Sample_counter = 0;
+    clr_Bit_counter = 0;
+    inc_Sample_counter = 0;
+    inc_Bit_counter = 0;
+    shift = 0;
+    Error1 = 0;   
+    Error2 = 0;
+    load = 0;
+    next_state = state;
+
+    case (state) 
+      idle:		if (Serial_in == 0) next_state = starting; 
+		
+     starting:	if (Serial_in == 1) begin
+		  next_state = idle;
+    		  clr_Sample_counter = 1;
+    		end else 
+   			    
+		if (Sample_counter == half_word -1) begin
+    		  next_state = receiving;
+    		  clr_Sample_counter = 1;
+    		end else inc_Sample_counter = 1; 
+    				
+      receiving:	if (Sample_counter < word_size-1) inc_Sample_counter = 1;
+		else begin 
+		  clr_Sample_counter = 1;
+		  if (Bit_counter != word_size)  begin
+      		    shift = 1;
+		    inc_Bit_counter = 1;
+		  end
+		  else begin
+		    next_state = idle;
+      		    read_not_ready_out = 1; 
+		    clr_Bit_counter = 1;
+      		    if (read_not_ready_in == 1) Error1 = 1; 
+		    else if (Serial_in == 0) Error2 = 1;
+        		    else load = 1;
+		  end
+		end
+      default:	next_state = idle;
+
+    endcase 
+  end
+endmodule
+
+module state_transition_part (RCV_datareg, Sample_counter, Bit_counter, state, next_state, clr_Sample_counter, inc_Sample_counter, clr_Bit_counter, inc_Bit_counter, shift, load, Serial_in, Sample_clk, reset_);
+  parameter		word_size = 8;	
+  parameter		half_word = word_size / 2;	
+  parameter		Num_counter_bits = 4;	// Must hold count of word_size
+  parameter		Num_state_bits = 2;	// Number of bits in state
+  parameter		idle		= 2'b00;
+  parameter		starting	= 2'b01;
+  parameter		receiving	= 2'b10;
+
+  output [word_size -1: 0] 		RCV_datareg;
+  output  [Num_counter_bits -1: 0] 	Sample_counter;
+  output [Num_counter_bits: 0]	 Bit_counter;	
+  output [Num_state_bits -1: 0] 	state;
+
+  input [Num_state_bits -1: 0] 	next_state;
+  input 				Serial_in;
+  input 				inc_Sample_counter, inc_Bit_counter;
+  input				clr_Bit_counter, clr_Sample_counter, shift, load;
+  input 				Sample_clk, reset_;
+		 
+  reg 				Sample_counter, Bit_counter;
+  reg [word_size-1: 0] 		RCV_shftreg, RCV_datareg;
+  reg 				state;		 
+  
+ 
+// state_transitions_and_datapath_register_transfers
+ 
+  always @ (posedge Sample_clk) begin
+    if (reset_ == 0) begin			// synchronous reset_
+      state <= idle; 
+      Sample_counter <= 0;
+      Bit_counter <= 0;
+      RCV_datareg <= 0;
+      RCV_shftreg <= 0;
+    end
+    else begin  
+      state <= next_state;
+
+      if (clr_Sample_counter == 1) Sample_counter <= 0; 
+      else if (inc_Sample_counter == 1) Sample_counter <= Sample_counter + 1;
+
+      if (clr_Bit_counter == 1) Bit_counter <= 0; 
+      else if (inc_Bit_counter == 1) Bit_counter <= Bit_counter + 1;
+      if (shift == 1) RCV_shftreg <= {Serial_in, RCV_shftreg[word_size-1: 1]};
+      if (load == 1) RCV_datareg <= RCV_shftreg;
+    end   
+  end 
+endmodule
+
+
+
+
+
+1
+
+
